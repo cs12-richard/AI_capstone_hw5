@@ -12,12 +12,12 @@
 
 **組員：**
 
-- 組員 1：YOUR NAME
+- 組員 1：徐柏安
 - 組員 2：YOUR NAME
 
 ## 2. 本體設計
 
-共用課程本體定義在 `course-affordance.ttl`，包含課程中使用的主要詞彙。
+共用課程本體定義在 `ontology/imports/course-affordance.ttl`，包含課程中使用的主要詞彙（classes、properties、course objects）。
 第 09 組自定義的物件與任務個體則定義在 `ontology/group-ontology.ttl`，使用 `g09:` 命名空間。
 
 本設計區分為：
@@ -25,14 +25,56 @@
 - 物件類別，例如 `cap:Cup`、`cap:Knife`、`cap:Fork`、`cap:Plate`、`cap:ToyBlock`、`cap:Basket`
 - 任務角色類別，例如 `cap:TargetObject`、`cap:ReferenceObject`、`cap:ContainerTarget`、`cap:CollectableObject`
 - affordance 類別，例如 `cap:GraspingAffordance`、`cap:SupportAffordance`、`cap:ContainmentAffordance`、`cap:StackabilityAffordance`
+- 推論類別：`cap:GraspableObject`，使用 `owl:equivalentClass` 定義
 - 物件個體，例如 `g09:blueCup01`、`g09:pinkCup01`、`g09:block01`
+- 任務個體，例如 `g09:cupStackingTask`、`g09:cutleryArrangementTask`、`g09:blockCollectionTask`
 
-`cap:GraspableObject` 使用 OWL 等價類定義：
+### GraspableObject 定義
 
-- `cap:PhysicalObject`
-- 且 `cap:hasAffordance some cap:GraspingAffordance`
+`cap:GraspableObject` 在 `ontology/group-ontology.ttl` 中使用 OWL 等價類定義：
+
+```
+cap:GraspableObject ≡ cap:PhysicalObject ⊓ ∃cap:hasAffordance.cap:GraspingAffordance
+```
+
+OWL/Turtle 序列化如下：
+
+```turtle
+cap:GraspableObject
+    a owl:Class ;
+    rdfs:subClassOf cap:PhysicalObject ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            cap:PhysicalObject
+            [ a owl:Restriction ;
+              owl:onProperty cap:hasAffordance ;
+              owl:someValuesFrom cap:GraspingAffordance
+            ]
+        )
+    ] .
+```
 
 因此 graspability 不是手動直接標註，而是透過推論得到。
+
+### 組別自定義 Properties
+
+除了使用課程共用 properties 外，第 09 組另外定義了兩個 group-specific properties：
+
+- `g09:usedInTask`（`owl:ObjectProperty`）：將物件連結到它所屬的操作任務。
+- `g09:hasGripWidthMM`（`owl:DatatypeProperty`）：記錄夾取該物件時的近似夾取寬度（毫米）。
+
+### OWL 資源使用摘要
+
+| OWL/RDFS 資源 | 使用位置 |
+| --- | --- |
+| `owl:Class` | `cap:GraspableObject` |
+| `owl:ObjectProperty` | `g09:usedInTask` |
+| `owl:DatatypeProperty` | `g09:hasGripWidthMM` |
+| `rdfs:subClassOf` | `cap:GraspableObject rdfs:subClassOf cap:PhysicalObject` |
+| `rdfs:label` | 所有 classes、properties、individuals |
+| `rdfs:comment` | 所有 classes、properties、individuals |
+| `owl:equivalentClass` + `owl:Restriction` | `cap:GraspableObject` 的推論定義 |
 
 ## 3. 物件與 affordance 對應
 
@@ -51,7 +93,7 @@
 - 共用課程詞彙：`cap:` = `https://hcis.io/ontology/aicapstone/2026/`
 - 第 09 組詞彙：`g09:` = `https://hcis.io/ontology/aicapstone/2026/group09/`
 
-第 09 組本體會把 local 物件個體、affordance 個體與 gripper 個體都放在 `g09:` 下；共用類別與屬性則維持在 `cap:` 下。
+第 09 組本體會把 local 物件個體、affordance 個體、gripper 個體、任務個體與組別自定義 properties 都放在 `g09:` 下；共用類別與屬性則維持在 `cap:` 下。`cap:GraspableObject` 的 OWL 等價類定義放在 group ontology 中，因為課程本體未提供此定義。
 
 ## 5. 查詢流程
 
@@ -80,8 +122,9 @@ SPARQL 查詢位於 `queries/graspable_objects.rq`，應該在包含共用課程
 
 ## 8. 推理機制與驗證
 
-本作業接受 RDFLib-based workflow，但前提是必須清楚說明額外的推理機制。
-本提交使用一個輕量級 Python materializer：它會先檢查每個物件是否為 `cap:PhysicalObject`，再檢查該物件是否有 `cap:hasAffordance` 指向一個型別為 `cap:GraspingAffordance` 的個體；當兩個條件同時成立時，就會在推論圖中加入 `cap:GraspableObject`。
+`cap:GraspableObject` 在 `ontology/group-ontology.ttl` 中有正式的 OWL `owl:equivalentClass` 定義。由於 RDFLib 不支援完整 OWL-DL 推理，本提交使用一個輕量級 Python materializer，其推理邏輯忠實反映了本體中的 OWL 語意：先檢查每個物件是否為 `cap:PhysicalObject`（含子類別），再檢查該物件是否有 `cap:hasAffordance` 指向一個型別為 `cap:GraspingAffordance`（含子類別）的個體；當兩個條件同時成立時，就會在推論圖中加入 `cap:GraspableObject`。
+
+作業明確允許 Python/RDFLib-based workflow，前提是清楚說明額外推理機制。
 
 驗證步驟：
 
@@ -92,7 +135,8 @@ SPARQL 查詢位於 `queries/graspable_objects.rq`，應該在包含共用課程
 
 ## 9. 侷限性
 
-這份提交的範圍是基礎任務，不包含進階延伸任務、額外 validation shapes，或圖像截圖。
+這份提交的範圍是基礎任務，不包含進階延伸任務、SHACL validation shapes，或 Protégé 截圖。
+推理使用 RDFLib-based materializer 而非完整 OWL-DL reasoner（如 HermiT），但推理邏輯與 `owl:equivalentClass` 定義的語意一致。
 如果課程流程要求特定 reasoner 的輸出，仍可依相同 ontology 與查詢結構重新產生 `inferred-results.ttl`。
 
 ## 10. Venv 使用說明

@@ -26,10 +26,70 @@ g09:group09Team
     rdfs:label "Group 09"@en ;
     rdfs:comment "The student group responsible for this ontology submission."@en .
 
+# ── Class definition: GraspableObject (Section 11 of homework) ─────
+
+cap:GraspableObject
+    a owl:Class ;
+    rdfs:label "graspable object"@en ;
+    rdfs:comment
+        "A physical object that has at least one grasping affordance and can therefore be grasped by a robot gripper. Defined as the intersection of cap:PhysicalObject and the existential restriction cap:hasAffordance some cap:GraspingAffordance."@en ;
+    rdfs:subClassOf cap:PhysicalObject ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            cap:PhysicalObject
+            [ a owl:Restriction ;
+              owl:onProperty cap:hasAffordance ;
+              owl:someValuesFrom cap:GraspingAffordance
+            ]
+        )
+    ] .
+
+# ── Group-specific properties ──────────────────────────────────────
+
+g09:usedInTask
+    a owl:ObjectProperty ;
+    rdfs:domain cap:PhysicalObject ;
+    rdfs:range cap:ManipulationTask ;
+    rdfs:label "used in task"@en ;
+    rdfs:comment "Relates a physical object to the manipulation task in which it participates."@en .
+
+g09:hasGripWidthMM
+    a owl:DatatypeProperty ;
+    rdfs:domain cap:PhysicalObject ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has grip width in millimeters"@en ;
+    rdfs:comment "Records the approximate grip width in millimeters required to grasp this object with the group 09 gripper."@en .
+
+# ── Task instances ─────────────────────────────────────────────────
+
+g09:cupStackingTask
+    a cap:ManipulationTask ;
+    rdfs:label "cup stacking task"@en ;
+    rdfs:comment "The baseline cup-stacking manipulation task for group 09."@en ;
+    cap:hasTargetObject g09:blueCup01 , g09:pinkCup01 .
+
+g09:cutleryArrangementTask
+    a cap:ManipulationTask ;
+    rdfs:label "cutlery arrangement task"@en ;
+    rdfs:comment "The baseline cutlery-arrangement manipulation task for group 09."@en ;
+    cap:hasTargetObject g09:knife01 , g09:fork01 ;
+    cap:hasReferenceObject g09:plate01 .
+
+g09:blockCollectionTask
+    a cap:ManipulationTask ;
+    rdfs:label "toy block collection task"@en ;
+    rdfs:comment "The baseline toy-block-collection manipulation task for group 09."@en ;
+    cap:hasTargetObject g09:block01 .
+
+# ── End effector ───────────────────────────────────────────────────
+
 g09:gripper01
     a cap:EndEffector ;
     rdfs:label "group 09 gripper"@en ;
     rdfs:comment "The gripper used as the manipulation end effector in the group 09 environment."@en .
+
+# ── Object individuals ─────────────────────────────────────────────
 
 g09:blueCup01
     a cap:Cup ;
@@ -40,7 +100,9 @@ g09:blueCup01
     cap:hasTaskRole cap:TargetObject ;
     cap:hasPoseFrame "world/object_blue_cup_01" ;
     cap:hasAffordance g09:blueCup01GraspingAffordance , g09:blueCup01StackabilityAffordance ;
-    cap:canBeManipulatedBy g09:gripper01 .
+    cap:canBeManipulatedBy g09:gripper01 ;
+    g09:usedInTask g09:cupStackingTask ;
+    g09:hasGripWidthMM "75"^^xsd:decimal .
 
 g09:blueCup01GraspingAffordance
     a cap:GraspingAffordance ;
@@ -61,7 +123,9 @@ g09:pinkCup01
     cap:hasTaskRole cap:TargetObject ;
     cap:hasPoseFrame "world/object_pink_cup_01" ;
     cap:hasAffordance g09:pinkCup01GraspingAffordance , g09:pinkCup01StackabilityAffordance ;
-    cap:canBeManipulatedBy g09:gripper01 .
+    cap:canBeManipulatedBy g09:gripper01 ;
+    g09:usedInTask g09:cupStackingTask ;
+    g09:hasGripWidthMM "75"^^xsd:decimal .
 
 g09:pinkCup01GraspingAffordance
     a cap:GraspingAffordance ;
@@ -82,7 +146,9 @@ g09:knife01
     cap:hasTaskRole cap:TargetObject ;
     cap:hasPoseFrame "world/object_knife_01" ;
     cap:hasAffordance g09:knife01GraspingAffordance ;
-    cap:canBeManipulatedBy g09:gripper01 .
+    cap:canBeManipulatedBy g09:gripper01 ;
+    g09:usedInTask g09:cutleryArrangementTask ;
+    g09:hasGripWidthMM "20"^^xsd:decimal .
 
 g09:knife01GraspingAffordance
     a cap:GraspingAffordance ;
@@ -98,7 +164,9 @@ g09:fork01
     cap:hasTaskRole cap:TargetObject ;
     cap:hasPoseFrame "world/object_fork_01" ;
     cap:hasAffordance g09:fork01GraspingAffordance ;
-    cap:canBeManipulatedBy g09:gripper01 .
+    cap:canBeManipulatedBy g09:gripper01 ;
+    g09:usedInTask g09:cutleryArrangementTask ;
+    g09:hasGripWidthMM "20"^^xsd:decimal .
 
 g09:fork01GraspingAffordance
     a cap:GraspingAffordance ;
@@ -113,7 +181,8 @@ g09:plate01
     cap:hasObjectLabel "plate" ;
     cap:hasTaskRole cap:ReferenceObject ;
     cap:hasPoseFrame "world/object_plate_01" ;
-    cap:hasAffordance g09:plate01SupportAffordance .
+    cap:hasAffordance g09:plate01SupportAffordance ;
+    g09:usedInTask g09:cutleryArrangementTask .
 
 g09:plate01SupportAffordance
     a cap:SupportAffordance ;
@@ -129,7 +198,9 @@ g09:block01
     cap:hasTaskRole cap:CollectableObject ;
     cap:hasPoseFrame "world/object_block_01" ;
     cap:hasAffordance g09:block01GraspingAffordance ;
-    cap:canBeManipulatedBy g09:gripper01 .
+    cap:canBeManipulatedBy g09:gripper01 ;
+    g09:usedInTask g09:blockCollectionTask ;
+    g09:hasGripWidthMM "40"^^xsd:decimal .
 
 g09:block01GraspingAffordance
     a cap:GraspingAffordance ;
@@ -144,7 +215,8 @@ g09:basket01
     cap:hasObjectLabel "basket" ;
     cap:hasTaskRole cap:ContainerTarget ;
     cap:hasPoseFrame "world/object_basket_01" ;
-    cap:hasAffordance g09:basket01ContainmentAffordance .
+    cap:hasAffordance g09:basket01ContainmentAffordance ;
+    g09:usedInTask g09:blockCollectionTask .
 
 g09:basket01ContainmentAffordance
     a cap:ContainmentAffordance ;

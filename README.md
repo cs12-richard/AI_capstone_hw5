@@ -4,17 +4,18 @@
 
 ## 內容
 
-- `course-affordance.ttl`：課程共用本體，包含 `cap:GraspableObject` 的定義。
-- `course-alignment.ttl`：課程層級的 SKOS 對應說明。
-- `ontology/group-ontology.ttl`：第 09 組自行建模的本體，包含物件個體與 affordance 個體。
+- `ontology/imports/course-affordance.ttl`：課程共用本體，包含 `cap:GraspableObject` 所需的基礎詞彙。
+- `ontology/imports/course-alignment.ttl`：課程層級的 SKOS 對應說明。
+- `ontology/group-ontology.ttl`：第 09 組自行建模的本體，包含 `cap:GraspableObject` 的 OWL 等價類定義、物件個體、affordance 個體、任務個體，以及組別自定義的 properties。
 - `ontology/inferred-results.ttl`：推論後產生的 `cap:GraspableObject` 成員關係。
 - `queries/graspable_objects.rq`：查詢推論後可抓取物件的 SPARQL。
 - `results/graspable_objects_output.txt`：查詢輸出結果。
+- `src/reason_and_export.py`：Python materializer，用來推論 `cap:GraspableObject` 並匯出結果。
 - `report.md`：作業報告。
 
 ## 第 09 組建模內容
 
-第 09 組只涵蓋作業中的基礎任務：
+第 09 組涵蓋作業中的三個基礎任務：
 
 - 杯子堆疊：`blueCup01`、`pinkCup01`
 - 餐具排列：`knife01`、`fork01`、`plate01`
@@ -22,11 +23,36 @@
 
 本組本體使用 `https://hcis.io/ontology/aicapstone/2026/group09/`，前綴為 `g09:`。課程共用詞彙，例如 `cap:Cup`、`cap:Knife`、`cap:GraspingAffordance`、`cap:GraspableObject`，都保留在 `cap:` 命名空間。
 
+## 物件與 Affordance 對應表
+
+| 物件 | 類型 | 任務角色 | Affordance | 是否可抓取（推論） |
+| --- | --- | --- | --- | --- |
+| `g09:blueCup01` | `cap:Cup` | `cap:TargetObject` | grasping, stackability | ✅ 是 |
+| `g09:pinkCup01` | `cap:Cup` | `cap:TargetObject` | grasping, stackability | ✅ 是 |
+| `g09:knife01` | `cap:Knife` | `cap:TargetObject` | grasping | ✅ 是 |
+| `g09:fork01` | `cap:Fork` | `cap:TargetObject` | grasping | ✅ 是 |
+| `g09:plate01` | `cap:Plate` | `cap:ReferenceObject` | support | ❌ 否 |
+| `g09:block01` | `cap:ToyBlock` | `cap:CollectableObject` | grasping | ✅ 是 |
+| `g09:basket01` | `cap:Basket` | `cap:ContainerTarget` | containment | ❌ 否 |
+
 ## 推論模式
 
-`cap:GraspableObject` 在 `course-affordance.ttl` 中被定義為：具有至少一個 `cap:hasAffordance`，且該 affordance 的型別為 `cap:GraspingAffordance` 的物理物件。
+`cap:GraspableObject` 在 `ontology/group-ontology.ttl` 中使用 OWL `owl:equivalentClass` 定義為：
+
+```
+cap:GraspableObject ≡ cap:PhysicalObject ⊓ ∃cap:hasAffordance.cap:GraspingAffordance
+```
+
+即一個物理物件若至少有一個 `cap:hasAffordance` 且該 affordance 的型別為 `cap:GraspingAffordance`，就會被推論成 `cap:GraspableObject`。
 
 本組本體針對杯子、刀子、叉子與積木建立 grasping affordance 個體，因此這些物件會被推論成 `cap:GraspableObject`。盤子與籃子只配置 support 與 containment affordance，所以不會出現在可抓取物件的查詢結果中。
+
+## 命名空間說明
+
+- 共用課程詞彙：`cap:` = `https://hcis.io/ontology/aicapstone/2026/`
+- 第 09 組詞彙：`g09:` = `https://hcis.io/ontology/aicapstone/2026/group09/`
+
+第 09 組本體會把 local 物件個體、affordance 個體、gripper 個體、任務個體與組別自定義 properties（`g09:usedInTask`、`g09:hasGripWidthMM`）都放在 `g09:` 下；共用類別與屬性則維持在 `cap:` 下。`cap:GraspableObject` 的 OWL 等價類定義也放在 group ontology 中，因為課程本體未提供此定義。
 
 ## SPARQL 查詢
 
@@ -52,11 +78,11 @@ ORDER BY ?obj
 
 預期會出現的推論結果如下：
 
-- `blueCup01`
-- `pinkCup01`
-- `knife01`
-- `fork01`
-- `block01`
+- `g09:blueCup01`
+- `g09:pinkCup01`
+- `g09:knife01`
+- `g09:fork01`
+- `g09:block01`
 
 `plate01` 與 `basket01` 不應出現在結果中，因為它們不是用 grasping affordance 建模。
 
@@ -69,14 +95,14 @@ ORDER BY ?obj
 
 本作業使用一個可重現的 Python workflow，基於 RDFLib 來 materialize `cap:GraspableObject`。
 
-腳本會對每個候選物件檢查兩個條件：
+`cap:GraspableObject` 在 `ontology/group-ontology.ttl` 中有正式的 OWL `owl:equivalentClass` 定義。由於 RDFLib 不支援完整 OWL-DL 推理，腳本會對每個候選物件檢查兩個條件：
 
 1. 該物件是 `cap:PhysicalObject`，或是其子類別
 2. 該物件至少有一個 `cap:hasAffordance`，而且該 affordance 的型別是 `cap:GraspingAffordance`，或其子類別
 
 若兩個條件都成立，就會把 `?obj a cap:GraspableObject` 加入推論圖。
 
-這是一個輕量級推理機制，不是完整 OWL-DL reasoner。因為作業允許使用 RDFLib-based workflow，只要清楚說明額外使用的推理機制，就可以接受。
+這個推理邏輯忠實地反映了本體中 `owl:equivalentClass` 的語意。作業允許使用 RDFLib-based workflow，只要清楚說明額外使用的推理機制。
 
 ## 如何執行
 
@@ -140,6 +166,19 @@ python -m http.server 8000
 
 - `http://localhost:8000/index-en.html`
 
+## 檔案連結
+
+| 檔案 | 說明 |
+| --- | --- |
+| [group-ontology.ttl](ontology/group-ontology.ttl) | 第 09 組本體（含 GraspableObject 定義） |
+| [inferred-results.ttl](ontology/inferred-results.ttl) | 推論結果 |
+| [course-affordance.ttl](ontology/imports/course-affordance.ttl) | 課程共用本體（imported） |
+| [course-alignment.ttl](ontology/imports/course-alignment.ttl) | SKOS 對應（imported） |
+| [graspable_objects.rq](queries/graspable_objects.rq) | SPARQL 查詢 |
+| [graspable_objects_output.txt](results/graspable_objects_output.txt) | 查詢輸出 |
+| [reason_and_export.py](src/reason_and_export.py) | 推論腳本 |
+| [report.md](report.md) | 作業報告 |
+
 ## 可重現流程
 
 - **需求**：Python 3.8 以上、`rdflib`，以及本機的 `venv`（建議使用）。
@@ -148,6 +187,5 @@ python -m http.server 8000
 
 ## 組員
 
-- 請在繳交前把下面兩行改成實際組員姓名。
 - 組員 1：徐柏安
 - 組員 2：YOUR NAME
