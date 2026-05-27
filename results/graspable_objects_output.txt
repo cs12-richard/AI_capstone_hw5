@@ -1,0 +1,6 @@
+obj	label	role
+https://hcis.io/ontology/aicapstone/2026/group09/block01	toy block 01	https://hcis.io/ontology/aicapstone/2026/CollectableObject
+https://hcis.io/ontology/aicapstone/2026/group09/blueCup01	blue cup 01	https://hcis.io/ontology/aicapstone/2026/TargetObject
+https://hcis.io/ontology/aicapstone/2026/group09/fork01	fork 01	https://hcis.io/ontology/aicapstone/2026/TargetObject
+https://hcis.io/ontology/aicapstone/2026/group09/knife01	knife 01	https://hcis.io/ontology/aicapstone/2026/TargetObject
+https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01	pink cup 01	https://hcis.io/ontology/aicapstone/2026/TargetObject

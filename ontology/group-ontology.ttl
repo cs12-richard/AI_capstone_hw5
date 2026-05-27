@@ -1,0 +1,152 @@
+@prefix cap:  <https://hcis.io/ontology/aicapstone/2026/> .
+@prefix g09:  <https://hcis.io/ontology/aicapstone/2026/group09/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+
+<https://hcis.io/ontology/aicapstone/2026/group09/>
+    a owl:Ontology ;
+    rdfs:label "AI Capstone 2026 Group 09 Ontology"@en ;
+    rdfs:comment "Group 09 ontology for baseline semantic grounding and inferred graspability over the course object vocabulary."@en ;
+    dcterms:title "AI Capstone 2026 Group 09 Ontology"@en ;
+    dcterms:description "Group 09 model for the AI Capstone 2026 homework 5 semantic grounding task, including task instances, affordance individuals, and graspability-ready assertions."@en ;
+    dcterms:creator g09:group09Team ;
+    dcterms:created "2026-05-27"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    vann:preferredNamespacePrefix "g09" ;
+    vann:preferredNamespaceUri "https://hcis.io/ontology/aicapstone/2026/group09/" ;
+    owl:imports <imports/course-affordance.ttl> .
+
+g09:group09Team
+    a foaf:Organization ;
+    rdfs:label "Group 09"@en ;
+    rdfs:comment "The student group responsible for this ontology submission."@en .
+
+g09:gripper01
+    a cap:EndEffector ;
+    rdfs:label "group 09 gripper"@en ;
+    rdfs:comment "The gripper used as the manipulation end effector in the group 09 environment."@en .
+
+g09:blueCup01
+    a cap:Cup ;
+    rdfs:label "blue cup 01"@en ;
+    rdfs:comment "The blue cup observed in the cup-stacking task."@en ;
+    cap:hasColor "blue" ;
+    cap:hasObjectLabel "blue_cup" ;
+    cap:hasTaskRole cap:TargetObject ;
+    cap:hasPoseFrame "world/object_blue_cup_01" ;
+    cap:hasAffordance g09:blueCup01GraspingAffordance , g09:blueCup01StackabilityAffordance ;
+    cap:canBeManipulatedBy g09:gripper01 .
+
+g09:blueCup01GraspingAffordance
+    a cap:GraspingAffordance ;
+    rdfs:label "blue cup 01 grasping affordance"@en ;
+    rdfs:comment "A grasping affordance associated with the blue cup."@en .
+
+g09:blueCup01StackabilityAffordance
+    a cap:StackabilityAffordance ;
+    rdfs:label "blue cup 01 stackability affordance"@en ;
+    rdfs:comment "A stackability affordance associated with the blue cup."@en .
+
+g09:pinkCup01
+    a cap:Cup ;
+    rdfs:label "pink cup 01"@en ;
+    rdfs:comment "The pink cup observed in the cup-stacking task."@en ;
+    cap:hasColor "pink" ;
+    cap:hasObjectLabel "pink_cup" ;
+    cap:hasTaskRole cap:TargetObject ;
+    cap:hasPoseFrame "world/object_pink_cup_01" ;
+    cap:hasAffordance g09:pinkCup01GraspingAffordance , g09:pinkCup01StackabilityAffordance ;
+    cap:canBeManipulatedBy g09:gripper01 .
+
+g09:pinkCup01GraspingAffordance
+    a cap:GraspingAffordance ;
+    rdfs:label "pink cup 01 grasping affordance"@en ;
+    rdfs:comment "A grasping affordance associated with the pink cup."@en .
+
+g09:pinkCup01StackabilityAffordance
+    a cap:StackabilityAffordance ;
+    rdfs:label "pink cup 01 stackability affordance"@en ;
+    rdfs:comment "A stackability affordance associated with the pink cup."@en .
+
+g09:knife01
+    a cap:Knife ;
+    rdfs:label "knife 01"@en ;
+    rdfs:comment "The knife observed in the cutlery-arrangement task."@en ;
+    cap:hasColor "silver" ;
+    cap:hasObjectLabel "knife" ;
+    cap:hasTaskRole cap:TargetObject ;
+    cap:hasPoseFrame "world/object_knife_01" ;
+    cap:hasAffordance g09:knife01GraspingAffordance ;
+    cap:canBeManipulatedBy g09:gripper01 .
+
+g09:knife01GraspingAffordance
+    a cap:GraspingAffordance ;
+    rdfs:label "knife 01 grasping affordance"@en ;
+    rdfs:comment "A grasping affordance associated with the knife."@en .
+
+g09:fork01
+    a cap:Fork ;
+    rdfs:label "fork 01"@en ;
+    rdfs:comment "The fork observed in the cutlery-arrangement task."@en ;
+    cap:hasColor "silver" ;
+    cap:hasObjectLabel "fork" ;
+    cap:hasTaskRole cap:TargetObject ;
+    cap:hasPoseFrame "world/object_fork_01" ;
+    cap:hasAffordance g09:fork01GraspingAffordance ;
+    cap:canBeManipulatedBy g09:gripper01 .
+
+g09:fork01GraspingAffordance
+    a cap:GraspingAffordance ;
+    rdfs:label "fork 01 grasping affordance"@en ;
+    rdfs:comment "A grasping affordance associated with the fork."@en .
+
+g09:plate01
+    a cap:Plate ;
+    rdfs:label "plate 01"@en ;
+    rdfs:comment "The plate used as a reference object in the cutlery-arrangement task."@en ;
+    cap:hasColor "white" ;
+    cap:hasObjectLabel "plate" ;
+    cap:hasTaskRole cap:ReferenceObject ;
+    cap:hasPoseFrame "world/object_plate_01" ;
+    cap:hasAffordance g09:plate01SupportAffordance .
+
+g09:plate01SupportAffordance
+    a cap:SupportAffordance ;
+    rdfs:label "plate 01 support affordance"@en ;
+    rdfs:comment "A support affordance associated with the plate."@en .
+
+g09:block01
+    a cap:ToyBlock ;
+    rdfs:label "toy block 01"@en ;
+    rdfs:comment "A toy block collected into the basket in the toy-block-collection task."@en ;
+    cap:hasColor "red" ;
+    cap:hasObjectLabel "toy_block" ;
+    cap:hasTaskRole cap:CollectableObject ;
+    cap:hasPoseFrame "world/object_block_01" ;
+    cap:hasAffordance g09:block01GraspingAffordance ;
+    cap:canBeManipulatedBy g09:gripper01 .
+
+g09:block01GraspingAffordance
+    a cap:GraspingAffordance ;
+    rdfs:label "toy block 01 grasping affordance"@en ;
+    rdfs:comment "A grasping affordance associated with the toy block."@en .
+
+g09:basket01
+    a cap:Basket ;
+    rdfs:label "basket 01"@en ;
+    rdfs:comment "The basket used as the container target in the toy-block-collection task."@en ;
+    cap:hasColor "brown" ;
+    cap:hasObjectLabel "basket" ;
+    cap:hasTaskRole cap:ContainerTarget ;
+    cap:hasPoseFrame "world/object_basket_01" ;
+    cap:hasAffordance g09:basket01ContainmentAffordance .
+
+g09:basket01ContainmentAffordance
+    a cap:ContainmentAffordance ;
+    rdfs:label "basket 01 containment affordance"@en ;
+    rdfs:comment "A containment affordance associated with the basket."@en .
