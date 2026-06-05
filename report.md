@@ -34,6 +34,17 @@
 - 物件個體，例如 `g09:blueCup01`、`g09:pinkCup01`、`g09:block01`
 - 任務個體，例如 `g09:cupStackingTask`、`g09:cutleryArrangementTask`、`g09:blockCollectionTask`、`g09:pumpBottlePressTask`
 
+## 2.1 Advanced-Level Extension
+
+本組在既有的 graspability 建模之外，額外建立 pressability 相關語意。新增:
+-g09:PumpBottle
+-g09:PressingAffordance
+-g09:PressableObject
+-g09:pumpBottlePressTask
+-g09:pumpBottle01
+
+g09:PumpBottle 代表進階任務中的幫浦瓶物件；g09:PressingAffordance 用於描述物件具有可按壓特性；g09:PressableObject 則透過 OWL 推論規則自動產生，用來表示具備按壓能力的物件。
+
 ### GraspableObject 與 PressableObject 定義
 
 `cap:GraspableObject` 在 `ontology/group-ontology.ttl` 中使用 OWL 等價類定義：
@@ -107,6 +118,33 @@ SPARQL 查詢位於 `queries/graspable_objects.rq` 與 `queries/pressable_object
 
 兩個查詢會分別回傳所有型別為 `cap:GraspableObject` 與 `g09:PressableObject` 的個體，並附帶可選的 label 與 task role。
 
+### 5.1 Advanced Level Query
+
+除了查詢可抓取物件之外，本組另外建立 PressableObject 查詢，用來驗證進階任務中的 Pump Bottle 是否正確完成推論。
+
+查詢內容如下：
+
+```sparql
+PREFIX cap: <https://hcis.io/ontology/aicapstone/2026/>
+PREFIX g09: <https://hcis.io/ontology/aicapstone/2026/group09/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?obj ?label ?role
+WHERE {
+    ?obj a g09:PressableObject .
+
+    OPTIONAL { ?obj rdfs:label ?label . }
+    OPTIONAL { ?obj cap:hasTaskRole ?role . }
+}
+ORDER BY ?obj
+```
+
+預期結果應包含：
+
+* `g09:pumpBottle01`
+
+代表系統已成功根據 PressingAffordance 推論出 PressableObject 類別。
+
 ## 6. 預期結果
 
 預期會被推論為可抓取物件的有：
@@ -144,6 +182,45 @@ Advanced level 的 `pumpBottle01` 參考自 `aicapstone` 中的 `pump_bottle_pre
 - 檢查 `ontology/inferred-results.ttl`，確認是否有五個 graspable 成員與一個 pressable 成員
 - 檢查 `results/graspable_objects_output.txt` 與 `results/pressable_objects_output.txt`，確認 SPARQL 查詢結果是否一致
 - 如果有使用 Widoco，則檢查 `docs/group09/doc/index-en.html` 是否已正確產生 ontology 文件
+
+### 8.1 PressableObject 推論範例
+
+Pump Bottle 的推論流程如下：
+
+首先，系統定義 `g09:pumpBottle01` 為 `g09:PumpBottle` 類別的個體，並透過 `cap:hasAffordance` 連結至 `g09:pumpBottlePressingAffordance`。
+
+```turtle
+g09:pumpBottle01
+    cap:hasAffordance
+        g09:pumpBottlePressingAffordance .
+
+g09:pumpBottlePressingAffordance
+    a g09:PressingAffordance .
+```
+
+由於本體中定義：
+
+```text
+g09:PressableObject ≡
+cap:PhysicalObject
+⊓
+∃ cap:hasAffordance.g09:PressingAffordance
+```
+
+因此當推理程式檢查到：
+
+1. 該物件屬於 PhysicalObject
+2. 該物件具有 PressingAffordance
+
+兩項條件同時成立時，便會自動加入：
+
+```turtle
+g09:pumpBottle01
+    rdf:type
+        g09:PressableObject .
+```
+
+此推論結果後續可透過 SPARQL 查詢進行驗證。
 
 ## 9. 侷限性
 
