@@ -159,12 +159,36 @@ java -jar "widoco-1.4.25-jar-with-dependencies_JDK-17.jar" -ontFile "ontology/gr
 如果要本機直接開啟查看，可以在 `docs/group09/doc` 目錄下啟動簡單伺服器：
 
 ```powershell
+cd docs/group09/doc
 python -m http.server 8000
 ```
 
 然後用瀏覽器開啟：
 
 - `http://localhost:8000/index-en.html`
+
+或者直接用瀏覽器開檔案（不需要伺服器）：
+
+```powershell
+start docs/group09/doc/index-en.html
+```
+
+### 如何確認 Widoco 文件是正確的
+
+開啟 `index-en.html` 後，請確認頁面中有以下區塊：
+
+1. **標題**：頁面上方顯示 「AI Capstone 2026 Group 09 Ontology」，Release 日期為 2026-05-27。
+2. **Overview**：可以看到本體 URI `https://hcis.io/ontology/aicapstone/2026/group09/` 與 `owl:imports` 連結。
+3. **Cross-reference**：列出以下項目：
+   - Class：`graspable object`（`cap:GraspableObject`），應包含 `owl:equivalentClass` 定義
+   - Object Property：`used in task`（`g09:usedInTask`），顯示 domain / range
+   - Data Property：`has grip width in millimeters`（`g09:hasGripWidthMM`），顯示 domain / range
+4. **Named Individuals**：應列出所有個體，包括：
+   - 物件：blue cup 01、pink cup 01、knife 01、fork 01、plate 01、toy block 01、basket 01
+   - 任務：cup stacking task、cutlery arrangement task、toy block collection task
+   - 其他：group 09 gripper，以及各物件的 affordance 個體
+
+如果頁面空白或缺少上述任何區塊，請重新執行 Widoco 指令。
 
 ## 檔案連結
 
