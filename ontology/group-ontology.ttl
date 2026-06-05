@@ -276,3 +276,27 @@ g09:pumpBottle01PressingAffordance
     a g09:PressingAffordance ;
     rdfs:label "pump bottle 01 pressing affordance"@en ;
     rdfs:comment "A pressing affordance associated with the pump bottle, modeled after the aicapstone pump_bottle_press task where the pump head is pressed once while the bottle remains stable."@en .
+
+g09:pumpBottlePressTask
+    a cap:ManipulationTask ;
+    rdfs:label "pump bottle press task"@en ;
+    rdfs:comment
+        "The advanced pump bottle pressing task."@en .
+
+g09:pumpBottle01
+    a g09:PumpBottle ;
+    cap:hasAffordance g09:pumpBottlePressingAffordance ;
+    cap:hasTaskRole cap:TargetObject ;
+    g09:usedInTask g09:pumpBottlePressTask ;
+    cap:hasColor "white" ;
+    cap:hasObjectLabel "pump_bottle" ;
+    cap:hasPoseFrame "world/object_pump_bottle_01" ;
+    rdfs:label "pump bottle 01"@en ;
+    rdfs:comment
+        "The pump bottle used in the advanced pressing task."@en .
+
+g09:pumpBottlePressingAffordance
+    a g09:PressingAffordance ;
+    rdfs:label "pump bottle pressing affordance"@en ;
+    rdfs:comment
+        "The pressing affordance associated with the pump bottle."@en .
