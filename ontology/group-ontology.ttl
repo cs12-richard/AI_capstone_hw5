@@ -83,26 +83,26 @@ g09:hasGripWidthMM
 g09:cupStackingTask
     a cap:ManipulationTask ;
     rdfs:label "cup stacking task"@en ;
-    rdfs:comment "The baseline cup-stacking manipulation task for group 09."@en ;
+    rdfs:comment "The baseline task where the robot stacks the blue cup on top of the pink cup."@en ;
     cap:hasTargetObject g09:blueCup01 , g09:pinkCup01 .
 
 g09:cutleryArrangementTask
     a cap:ManipulationTask ;
     rdfs:label "cutlery arrangement task"@en ;
-    rdfs:comment "The baseline cutlery-arrangement manipulation task for group 09."@en ;
+    rdfs:comment "The baseline task where the robot arrange the fork and knife on the right and left side of the plate, respectively, within a limited distance."@en ;
     cap:hasTargetObject g09:knife01 , g09:fork01 ;
     cap:hasReferenceObject g09:plate01 .
 
 g09:blockCollectionTask
     a cap:ManipulationTask ;
     rdfs:label "toy block collection task"@en ;
-    rdfs:comment "The baseline toy-block-collection manipulation task for group 09."@en ;
+    rdfs:comment "The baseline task where the robot collect all the blocks within (x,y,z)_range of the storage_box."@en ;
     cap:hasTargetObject g09:block01 .
 
 g09:pumpBottlePressTask
     a cap:ManipulationTask ;
     rdfs:label "pump bottle press task"@en ;
-    rdfs:comment "The advanced manipulation task, where the robot presses the pump bottle once while keeping the bottle upright."@en ;
+    rdfs:comment "The advanced manipulation task, where the robot presses down the pump bottle and release while keeping the bottle upright."@en ;
     cap:hasTargetObject g09:pumpBottle01 .
 
 # ── End effector ───────────────────────────────────────────────────
@@ -110,7 +110,7 @@ g09:pumpBottlePressTask
 g09:gripper01
     a cap:EndEffector ;
     rdfs:label "group 09 gripper"@en ;
-    rdfs:comment "The gripper used as the manipulation end effector in the group 09 environment."@en .
+    rdfs:comment "The gripper used as the manipulation end effector in the environment."@en .
 
 # ── Group-specific classes ─────────────────────────────────────────
 
