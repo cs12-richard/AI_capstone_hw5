@@ -1,0 +1,666 @@
+[ {
+  "@id" : "_:genid1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+    }, {
+      "@id" : "_:genid3"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid3",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/hasAffordance"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/GraspingAffordance"
+  } ]
+}, {
+  "@id" : "_:genid5",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+    }, {
+      "@id" : "_:genid7"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid7",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/hasAffordance"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/PressingAffordance"
+  } ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/Organization",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/CollectableObject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/ContainerTarget",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/GraspableObject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A physical object that has at least one grasping affordance and can therefore be grasped by a robot gripper. Defined as the intersection of cap:PhysicalObject and the existential restriction cap:hasAffordance some cap:GraspingAffordance."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "graspable object"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid1"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/ReferenceObject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/TargetObject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.org/dc/terms/created" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#date",
+    "@value" : "2026-05-27"
+  } ],
+  "http://purl.org/dc/terms/creator" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/group09Team"
+  } ],
+  "http://purl.org/dc/terms/description" : [ {
+    "@language" : "en",
+    "@value" : "Group 09 model for the AI Capstone 2026 homework 5 semantic grounding task, including task instances, affordance individuals, and graspability-ready assertions."
+  } ],
+  "http://purl.org/dc/terms/license" : [ {
+    "@id" : "https://creativecommons.org/licenses/by/4.0/"
+  } ],
+  "http://purl.org/dc/terms/title" : [ {
+    "@language" : "en",
+    "@value" : "AI Capstone 2026 Group 09 Ontology"
+  } ],
+  "http://purl.org/vocab/vann/preferredNamespacePrefix" : [ {
+    "@value" : "g09"
+  } ],
+  "http://purl.org/vocab/vann/preferredNamespaceUri" : [ {
+    "@value" : "https://hcis.io/ontology/aicapstone/2026/group09/"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Group 09 ontology for baseline semantic grounding and inferred graspability over the course object vocabulary."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "AI Capstone 2026 Group 09 Ontology"
+  } ],
+  "http://www.w3.org/2002/07/owl#imports" : [ {
+    "@id" : "file:/G:/學校/114-2/人工智慧/HW5/AI_capstone_hw5/ontology/imports/course-affordance.ttl"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/PressableObject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A physical object that has at least one pressing affordance and can therefore be pressed by a robot in the task context."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "pressable object"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid5"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/PressingAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An affordance by which an articulated object can be pressed along a task-relevant joint while remaining stable."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "pressing affordance"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/Affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/PumpBottle",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An advanced-level articulated bottle-shaped object with a pressable pump head, aligned with the aicapstone pump_bottle object."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "pump bottle"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/basket01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/Basket" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The basket used as the container target in the toy-block-collection task."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "basket 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/usedInTask" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/blockCollectionTask"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/basket01ContainmentAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasColor" : [ {
+    "@value" : "brown"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "basket"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "world/object_basket_01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/ContainerTarget"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/basket01ContainmentAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/ContainmentAffordance" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A containment affordance associated with the basket."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "basket 01 containment affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/block01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/ToyBlock" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A toy block collected into the basket in the toy-block-collection task."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "toy block 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/gripper01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "40"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/usedInTask" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/blockCollectionTask"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/block01GraspingAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasColor" : [ {
+    "@value" : "red"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "toy_block"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "world/object_block_01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/CollectableObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/block01GraspingAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A grasping affordance associated with the toy block."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "toy block 01 grasping affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/blockCollectionTask",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/ManipulationTask" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The baseline toy-block-collection manipulation task for group 09."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "toy block collection task"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTargetObject" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/block01"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/blueCup01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/Cup" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The blue cup observed in the cup-stacking task."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "blue cup 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/gripper01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "75"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/usedInTask" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/cupStackingTask"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/blueCup01GraspingAffordance"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/blueCup01StackabilityAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasColor" : [ {
+    "@value" : "blue"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "blue_cup"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "world/object_blue_cup_01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/TargetObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/blueCup01GraspingAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A grasping affordance associated with the blue cup."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "blue cup 01 grasping affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/blueCup01StackabilityAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/StackabilityAffordance" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A stackability affordance associated with the blue cup."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "blue cup 01 stackability affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/cupStackingTask",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/ManipulationTask" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The baseline cup-stacking manipulation task for group 09."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "cup stacking task"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTargetObject" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/blueCup01"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/ManipulationTask" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The baseline cutlery-arrangement manipulation task for group 09."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "cutlery arrangement task"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasReferenceObject" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/plate01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTargetObject" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/fork01"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/knife01"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/fork01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/Fork" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The fork observed in the cutlery-arrangement task."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "fork 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/gripper01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "20"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/usedInTask" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/fork01GraspingAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasColor" : [ {
+    "@value" : "silver"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "fork"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "world/object_fork_01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/TargetObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/fork01GraspingAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A grasping affordance associated with the fork."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "fork 01 grasping affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/gripper01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/EndEffector" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The gripper used as the manipulation end effector in the group 09 environment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "group 09 gripper"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/group09Team",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Organization"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The student group responsible for this ontology submission."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Group 09"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Records the approximate grip width in millimeters required to grasp this object with the group 09 gripper."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has grip width in millimeters"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/knife01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/Knife" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The knife observed in the cutlery-arrangement task."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "knife 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/gripper01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "20"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/usedInTask" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/knife01GraspingAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasColor" : [ {
+    "@value" : "silver"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "knife"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "world/object_knife_01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/TargetObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/knife01GraspingAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A grasping affordance associated with the knife."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "knife 01 grasping affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/Cup" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The pink cup observed in the cup-stacking task."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "pink cup 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/gripper01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "75"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/usedInTask" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/cupStackingTask"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01GraspingAffordance"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01StackabilityAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasColor" : [ {
+    "@value" : "pink"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "pink_cup"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "world/object_pink_cup_01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/TargetObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01GraspingAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A grasping affordance associated with the pink cup."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "pink cup 01 grasping affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01StackabilityAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/StackabilityAffordance" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A stackability affordance associated with the pink cup."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "pink cup 01 stackability affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/plate01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/Plate" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The plate used as a reference object in the cutlery-arrangement task."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "plate 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/usedInTask" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/plate01SupportAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasColor" : [ {
+    "@value" : "white"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "plate"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "world/object_plate_01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/ReferenceObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/plate01SupportAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/SupportAffordance" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A support affordance associated with the plate."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "plate 01 support affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/PumpBottle"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The advanced-level pump bottle used in the pump bottle press task, matching the aicapstone object label pump_bottle."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "pump bottle 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/gripper01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/group09/usedInTask" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pumpBottlePressTask"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01PressingAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasColor" : [ {
+    "@value" : "white"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "pump_bottle"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "world/object_pump_bottle_01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/TargetObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01PressingAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/PressingAffordance"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A pressing affordance associated with the pump bottle, modeled after the aicapstone pump_bottle_press task where the pump head is pressed once while the bottle remains stable."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "pump bottle 01 pressing affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pumpBottlePressTask",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/ManipulationTask" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The advanced manipulation task, where the robot presses the pump bottle once while keeping the bottle upright."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "pump bottle press task"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTargetObject" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group09/usedInTask",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Relates a physical object to the manipulation task in which it participates."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "used in task"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/ManipulationTask"
+  } ]
+} ]

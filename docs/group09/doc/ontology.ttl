@@ -1,0 +1,353 @@
+@prefix : <https://hcis.io/ontology/aicapstone/2026/group09/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://hcis.io/ontology/aicapstone/2026/group09/> .
+
+<https://hcis.io/ontology/aicapstone/2026/group09/> rdf:type owl:Ontology ;
+                                                     owl:imports <file:/G:/學校/114-2/人工智慧/HW5/AI_capstone_hw5/ontology/imports/course-affordance.ttl> ;
+                                                     <http://purl.org/dc/terms/created> "2026-05-27"^^xsd:date ;
+                                                     <http://purl.org/dc/terms/creator> :group09Team ;
+                                                     <http://purl.org/dc/terms/description> "Group 09 model for the AI Capstone 2026 homework 5 semantic grounding task, including task instances, affordance individuals, and graspability-ready assertions."@en ;
+                                                     <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                                     <http://purl.org/dc/terms/title> "AI Capstone 2026 Group 09 Ontology"@en ;
+                                                     <http://purl.org/vocab/vann/preferredNamespacePrefix> "g09" ;
+                                                     <http://purl.org/vocab/vann/preferredNamespaceUri> "https://hcis.io/ontology/aicapstone/2026/group09/" ;
+                                                     rdfs:comment "Group 09 ontology for baseline semantic grounding and inferred graspability over the course object vocabulary."@en ;
+                                                     rdfs:label "AI Capstone 2026 Group 09 Ontology"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/usedInTask
+:usedInTask rdf:type owl:ObjectProperty ;
+            rdfs:domain <https://hcis.io/ontology/aicapstone/2026/PhysicalObject> ;
+            rdfs:range <https://hcis.io/ontology/aicapstone/2026/ManipulationTask> ;
+            rdfs:comment "Relates a physical object to the manipulation task in which it participates."@en ;
+            rdfs:label "used in task"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM
+:hasGripWidthMM rdf:type owl:DatatypeProperty ;
+                rdfs:domain <https://hcis.io/ontology/aicapstone/2026/PhysicalObject> ;
+                rdfs:range xsd:decimal ;
+                rdfs:comment "Records the approximate grip width in millimeters required to grasp this object with the group 09 gripper."@en ;
+                rdfs:label "has grip width in millimeters"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/Organization
+<http://xmlns.com/foaf/0.1/Organization> rdf:type owl:Class .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/GraspableObject
+<https://hcis.io/ontology/aicapstone/2026/GraspableObject> rdf:type owl:Class ;
+                                                           owl:equivalentClass [ owl:intersectionOf ( <https://hcis.io/ontology/aicapstone/2026/PhysicalObject>
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty <https://hcis.io/ontology/aicapstone/2026/hasAffordance> ;
+                                                                                                        owl:someValuesFrom <https://hcis.io/ontology/aicapstone/2026/GraspingAffordance>
+                                                                                                      ]
+                                                                                                    ) ;
+                                                                                 rdf:type owl:Class
+                                                                               ] ;
+                                                           rdfs:subClassOf <https://hcis.io/ontology/aicapstone/2026/PhysicalObject> ;
+                                                           rdfs:comment "A physical object that has at least one grasping affordance and can therefore be grasped by a robot gripper. Defined as the intersection of cap:PhysicalObject and the existential restriction cap:hasAffordance some cap:GraspingAffordance."@en ;
+                                                           rdfs:label "graspable object"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/PressableObject
+:PressableObject rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( <https://hcis.io/ontology/aicapstone/2026/PhysicalObject>
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <https://hcis.io/ontology/aicapstone/2026/hasAffordance> ;
+                                                              owl:someValuesFrom :PressingAffordance
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf <https://hcis.io/ontology/aicapstone/2026/PhysicalObject> ;
+                 rdfs:comment "A physical object that has at least one pressing affordance and can therefore be pressed by a robot in the task context."@en ;
+                 rdfs:label "pressable object"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/PressingAffordance
+:PressingAffordance rdf:type owl:Class ;
+                    rdfs:subClassOf <https://hcis.io/ontology/aicapstone/2026/Affordance> ;
+                    rdfs:comment "An affordance by which an articulated object can be pressed along a task-relevant joint while remaining stable."@en ;
+                    rdfs:label "pressing affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/PumpBottle
+:PumpBottle rdf:type owl:Class ;
+            rdfs:subClassOf <https://hcis.io/ontology/aicapstone/2026/PhysicalObject> ;
+            rdfs:comment "An advanced-level articulated bottle-shaped object with a pressable pump head, aligned with the aicapstone pump_bottle object."@en ;
+            rdfs:label "pump bottle"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://hcis.io/ontology/aicapstone/2026/CollectableObject
+<https://hcis.io/ontology/aicapstone/2026/CollectableObject> rdf:type owl:NamedIndividual .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/ContainerTarget
+<https://hcis.io/ontology/aicapstone/2026/ContainerTarget> rdf:type owl:NamedIndividual .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/ReferenceObject
+<https://hcis.io/ontology/aicapstone/2026/ReferenceObject> rdf:type owl:NamedIndividual .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/TargetObject
+<https://hcis.io/ontology/aicapstone/2026/TargetObject> rdf:type owl:NamedIndividual .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/basket01
+:basket01 rdf:type owl:NamedIndividual ,
+                   <https://hcis.io/ontology/aicapstone/2026/Basket> ;
+          <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :basket01ContainmentAffordance ;
+          <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/ContainerTarget> ;
+          :usedInTask :blockCollectionTask ;
+          <https://hcis.io/ontology/aicapstone/2026/hasColor> "brown" ;
+          <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "basket" ;
+          <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_basket_01" ;
+          rdfs:comment "The basket used as the container target in the toy-block-collection task."@en ;
+          rdfs:label "basket 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/basket01ContainmentAffordance
+:basket01ContainmentAffordance rdf:type owl:NamedIndividual ,
+                                        <https://hcis.io/ontology/aicapstone/2026/ContainmentAffordance> ;
+                               rdfs:comment "A containment affordance associated with the basket."@en ;
+                               rdfs:label "basket 01 containment affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/block01
+:block01 rdf:type owl:NamedIndividual ,
+                  <https://hcis.io/ontology/aicapstone/2026/ToyBlock> ;
+         <https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy> :gripper01 ;
+         <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :block01GraspingAffordance ;
+         <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/CollectableObject> ;
+         :usedInTask :blockCollectionTask ;
+         <https://hcis.io/ontology/aicapstone/2026/hasColor> "red" ;
+         <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "toy_block" ;
+         <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_block_01" ;
+         :hasGripWidthMM 40 ;
+         rdfs:comment "A toy block collected into the basket in the toy-block-collection task."@en ;
+         rdfs:label "toy block 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/block01GraspingAffordance
+:block01GraspingAffordance rdf:type owl:NamedIndividual ,
+                                    <https://hcis.io/ontology/aicapstone/2026/GraspingAffordance> ;
+                           rdfs:comment "A grasping affordance associated with the toy block."@en ;
+                           rdfs:label "toy block 01 grasping affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/blockCollectionTask
+:blockCollectionTask rdf:type owl:NamedIndividual ,
+                              <https://hcis.io/ontology/aicapstone/2026/ManipulationTask> ;
+                     <https://hcis.io/ontology/aicapstone/2026/hasTargetObject> :block01 ;
+                     rdfs:comment "The baseline toy-block-collection manipulation task for group 09."@en ;
+                     rdfs:label "toy block collection task"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/blueCup01
+:blueCup01 rdf:type owl:NamedIndividual ,
+                    <https://hcis.io/ontology/aicapstone/2026/Cup> ;
+           <https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy> :gripper01 ;
+           <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :blueCup01GraspingAffordance ,
+                                                                    :blueCup01StackabilityAffordance ;
+           <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/TargetObject> ;
+           :usedInTask :cupStackingTask ;
+           <https://hcis.io/ontology/aicapstone/2026/hasColor> "blue" ;
+           <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "blue_cup" ;
+           <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_blue_cup_01" ;
+           :hasGripWidthMM 75 ;
+           rdfs:comment "The blue cup observed in the cup-stacking task."@en ;
+           rdfs:label "blue cup 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/blueCup01GraspingAffordance
+:blueCup01GraspingAffordance rdf:type owl:NamedIndividual ,
+                                      <https://hcis.io/ontology/aicapstone/2026/GraspingAffordance> ;
+                             rdfs:comment "A grasping affordance associated with the blue cup."@en ;
+                             rdfs:label "blue cup 01 grasping affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/blueCup01StackabilityAffordance
+:blueCup01StackabilityAffordance rdf:type owl:NamedIndividual ,
+                                          <https://hcis.io/ontology/aicapstone/2026/StackabilityAffordance> ;
+                                 rdfs:comment "A stackability affordance associated with the blue cup."@en ;
+                                 rdfs:label "blue cup 01 stackability affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/cupStackingTask
+:cupStackingTask rdf:type owl:NamedIndividual ,
+                          <https://hcis.io/ontology/aicapstone/2026/ManipulationTask> ;
+                 <https://hcis.io/ontology/aicapstone/2026/hasTargetObject> :blueCup01 ,
+                                                                            :pinkCup01 ;
+                 rdfs:comment "The baseline cup-stacking manipulation task for group 09."@en ;
+                 rdfs:label "cup stacking task"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask
+:cutleryArrangementTask rdf:type owl:NamedIndividual ,
+                                 <https://hcis.io/ontology/aicapstone/2026/ManipulationTask> ;
+                        <https://hcis.io/ontology/aicapstone/2026/hasReferenceObject> :plate01 ;
+                        <https://hcis.io/ontology/aicapstone/2026/hasTargetObject> :fork01 ,
+                                                                                   :knife01 ;
+                        rdfs:comment "The baseline cutlery-arrangement manipulation task for group 09."@en ;
+                        rdfs:label "cutlery arrangement task"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/fork01
+:fork01 rdf:type owl:NamedIndividual ,
+                 <https://hcis.io/ontology/aicapstone/2026/Fork> ;
+        <https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy> :gripper01 ;
+        <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :fork01GraspingAffordance ;
+        <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/TargetObject> ;
+        :usedInTask :cutleryArrangementTask ;
+        <https://hcis.io/ontology/aicapstone/2026/hasColor> "silver" ;
+        <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "fork" ;
+        <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_fork_01" ;
+        :hasGripWidthMM 20 ;
+        rdfs:comment "The fork observed in the cutlery-arrangement task."@en ;
+        rdfs:label "fork 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/fork01GraspingAffordance
+:fork01GraspingAffordance rdf:type owl:NamedIndividual ,
+                                   <https://hcis.io/ontology/aicapstone/2026/GraspingAffordance> ;
+                          rdfs:comment "A grasping affordance associated with the fork."@en ;
+                          rdfs:label "fork 01 grasping affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/gripper01
+:gripper01 rdf:type owl:NamedIndividual ,
+                    <https://hcis.io/ontology/aicapstone/2026/EndEffector> ;
+           rdfs:comment "The gripper used as the manipulation end effector in the group 09 environment."@en ;
+           rdfs:label "group 09 gripper"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/group09Team
+:group09Team rdf:type owl:NamedIndividual ,
+                      <http://xmlns.com/foaf/0.1/Organization> ;
+             rdfs:comment "The student group responsible for this ontology submission."@en ;
+             rdfs:label "Group 09"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/knife01
+:knife01 rdf:type owl:NamedIndividual ,
+                  <https://hcis.io/ontology/aicapstone/2026/Knife> ;
+         <https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy> :gripper01 ;
+         <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :knife01GraspingAffordance ;
+         <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/TargetObject> ;
+         :usedInTask :cutleryArrangementTask ;
+         <https://hcis.io/ontology/aicapstone/2026/hasColor> "silver" ;
+         <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "knife" ;
+         <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_knife_01" ;
+         :hasGripWidthMM 20 ;
+         rdfs:comment "The knife observed in the cutlery-arrangement task."@en ;
+         rdfs:label "knife 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/knife01GraspingAffordance
+:knife01GraspingAffordance rdf:type owl:NamedIndividual ,
+                                    <https://hcis.io/ontology/aicapstone/2026/GraspingAffordance> ;
+                           rdfs:comment "A grasping affordance associated with the knife."@en ;
+                           rdfs:label "knife 01 grasping affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01
+:pinkCup01 rdf:type owl:NamedIndividual ,
+                    <https://hcis.io/ontology/aicapstone/2026/Cup> ;
+           <https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy> :gripper01 ;
+           <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :pinkCup01GraspingAffordance ,
+                                                                    :pinkCup01StackabilityAffordance ;
+           <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/TargetObject> ;
+           :usedInTask :cupStackingTask ;
+           <https://hcis.io/ontology/aicapstone/2026/hasColor> "pink" ;
+           <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "pink_cup" ;
+           <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_pink_cup_01" ;
+           :hasGripWidthMM 75 ;
+           rdfs:comment "The pink cup observed in the cup-stacking task."@en ;
+           rdfs:label "pink cup 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01GraspingAffordance
+:pinkCup01GraspingAffordance rdf:type owl:NamedIndividual ,
+                                      <https://hcis.io/ontology/aicapstone/2026/GraspingAffordance> ;
+                             rdfs:comment "A grasping affordance associated with the pink cup."@en ;
+                             rdfs:label "pink cup 01 grasping affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01StackabilityAffordance
+:pinkCup01StackabilityAffordance rdf:type owl:NamedIndividual ,
+                                          <https://hcis.io/ontology/aicapstone/2026/StackabilityAffordance> ;
+                                 rdfs:comment "A stackability affordance associated with the pink cup."@en ;
+                                 rdfs:label "pink cup 01 stackability affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/plate01
+:plate01 rdf:type owl:NamedIndividual ,
+                  <https://hcis.io/ontology/aicapstone/2026/Plate> ;
+         <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :plate01SupportAffordance ;
+         <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/ReferenceObject> ;
+         :usedInTask :cutleryArrangementTask ;
+         <https://hcis.io/ontology/aicapstone/2026/hasColor> "white" ;
+         <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "plate" ;
+         <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_plate_01" ;
+         rdfs:comment "The plate used as a reference object in the cutlery-arrangement task."@en ;
+         rdfs:label "plate 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/plate01SupportAffordance
+:plate01SupportAffordance rdf:type owl:NamedIndividual ,
+                                   <https://hcis.io/ontology/aicapstone/2026/SupportAffordance> ;
+                          rdfs:comment "A support affordance associated with the plate."@en ;
+                          rdfs:label "plate 01 support affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01
+:pumpBottle01 rdf:type owl:NamedIndividual ,
+                       :PumpBottle ;
+              <https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy> :gripper01 ;
+              <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :pumpBottle01PressingAffordance ;
+              <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/TargetObject> ;
+              :usedInTask :pumpBottlePressTask ;
+              <https://hcis.io/ontology/aicapstone/2026/hasColor> "white" ;
+              <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "pump_bottle" ;
+              <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_pump_bottle_01" ;
+              rdfs:comment "The advanced-level pump bottle used in the pump bottle press task, matching the aicapstone object label pump_bottle."@en ;
+              rdfs:label "pump bottle 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01PressingAffordance
+:pumpBottle01PressingAffordance rdf:type owl:NamedIndividual ,
+                                         :PressingAffordance ;
+                                rdfs:comment "A pressing affordance associated with the pump bottle, modeled after the aicapstone pump_bottle_press task where the pump head is pressed once while the bottle remains stable."@en ;
+                                rdfs:label "pump bottle 01 pressing affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group09/pumpBottlePressTask
+:pumpBottlePressTask rdf:type owl:NamedIndividual ,
+                              <https://hcis.io/ontology/aicapstone/2026/ManipulationTask> ;
+                     <https://hcis.io/ontology/aicapstone/2026/hasTargetObject> :pumpBottle01 ;
+                     rdfs:comment "The advanced manipulation task, where the robot presses the pump bottle once while keeping the bottle upright."@en ;
+                     rdfs:label "pump bottle press task"@en .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

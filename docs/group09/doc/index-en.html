@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>AI Capstone 2026 Group 09 Ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://hcis.io/ontology/aicapstone/2026/group09/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://hcis.io/ontology/aicapstone/2026/group09/","name":"AI Capstone 2026 Group 09 Ontology", "headline":"Document describing the ontology https://hcis.io/ontology/aicapstone/2026/group09/", "dateReleased":"2026-05-27", "license":"https://creativecommons.org/licenses/by/4.0/", "author":[{"@type":"Person","name":"Group 09","url":"https://hcis.io/ontology/aicapstone/2026/group09/group09Team"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>AI Capstone 2026 Group 09 Ontology</h1>
+<h2>Release: 2026-05-27</h2>
+
+
+<dl>
+<dt>Authors:</dt>
+<dd><a href="https://hcis.io/ontology/aicapstone/2026/group09/group09Team">Group 09</a></dd>
+
+<dt>Imported Ontologies:</dt>
+<dd><a href="https://hcis.io/ontology/aicapstone/2026">2026</a></dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
+</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd>Group 09. AI Capstone 2026 Group 09 Ontology.</dd>
+</dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+This is a placeholder text for the abstract. The abstract should contain a couple of sentences summarizing the ontology and its purpose.</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">AI Capstone 2026 Group 09 Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#https://hcis.io/ontology/aicapstone/2026/GraspableObject"
+         title="https://hcis.io/ontology/aicapstone/2026/GraspableObject">graspable object</a>
+   </li>
+   <li>
+      <a href="#PressableObject"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/PressableObject">pressable object</a>
+   </li>
+   <li>
+      <a href="#PressingAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/PressingAffordance">pressing affordance</a>
+   </li>
+   <li>
+      <a href="#PumpBottle"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/PumpBottle">pump bottle</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#usedInTask"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/usedInTask">used in task</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#hasGripWidthMM"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM">has grip width in millimeters</a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#basket01"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/basket01">basket 01</a>
+   </li>
+   <li>
+      <a href="#basket01ContainmentAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/basket01ContainmentAffordance">basket 01 containment affordance</a>
+   </li>
+   <li>
+      <a href="#blueCup01"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/blueCup01">blue cup 01</a>
+   </li>
+   <li>
+      <a href="#blueCup01GraspingAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/blueCup01GraspingAffordance">blue cup 01 grasping affordance</a>
+   </li>
+   <li>
+      <a href="#blueCup01StackabilityAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/blueCup01StackabilityAffordance">blue cup 01 stackability affordance</a>
+   </li>
+   <li>
+      <a href="#cupStackingTask"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/cupStackingTask">cup stacking task</a>
+   </li>
+   <li>
+      <a href="#cutleryArrangementTask"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask">cutlery arrangement task</a>
+   </li>
+   <li>
+      <a href="#fork01"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/fork01">fork 01</a>
+   </li>
+   <li>
+      <a href="#fork01GraspingAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/fork01GraspingAffordance">fork 01 grasping affordance</a>
+   </li>
+   <li>
+      <a href="#group09Team"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/group09Team">Group 09</a>
+   </li>
+   <li>
+      <a href="#gripper01"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/gripper01">group 09 gripper</a>
+   </li>
+   <li>
+      <a href="#knife01"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/knife01">knife 01</a>
+   </li>
+   <li>
+      <a href="#knife01GraspingAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/knife01GraspingAffordance">knife 01 grasping affordance</a>
+   </li>
+   <li>
+      <a href="#pinkCup01"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01">pink cup 01</a>
+   </li>
+   <li>
+      <a href="#pinkCup01GraspingAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01GraspingAffordance">pink cup 01 grasping affordance</a>
+   </li>
+   <li>
+      <a href="#pinkCup01StackabilityAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01StackabilityAffordance">pink cup 01 stackability affordance</a>
+   </li>
+   <li>
+      <a href="#plate01"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/plate01">plate 01</a>
+   </li>
+   <li>
+      <a href="#plate01SupportAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/plate01SupportAffordance">plate 01 support affordance</a>
+   </li>
+   <li>
+      <a href="#pumpBottle01"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01">pump bottle 01</a>
+   </li>
+   <li>
+      <a href="#pumpBottle01PressingAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01PressingAffordance">pump bottle 01 pressing affordance</a>
+   </li>
+   <li>
+      <a href="#pumpBottlePressTask"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottlePressTask">pump bottle press task</a>
+   </li>
+   <li>
+      <a href="#block01"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/block01">toy block 01</a>
+   </li>
+   <li>
+      <a href="#block01GraspingAffordance"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/block01GraspingAffordance">toy block 01 grasping affordance</a>
+   </li>
+   <li>
+      <a href="#blockCollectionTask"
+         title="https://hcis.io/ontology/aicapstone/2026/group09/blockCollectionTask">toy block collection task</a>
+   </li>
+</ul>
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">AI Capstone 2026 Group 09 Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">Group 09 ontology for baseline semantic grounding and inferred graspability over the course object vocabulary.</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for AI Capstone 2026 Group 09 Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by AI Capstone 2026 Group 09 Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#https://hcis.io/ontology/aicapstone/2026/GraspableObject" title="https://hcis.io/ontology/aicapstone/2026/GraspableObject">graspable object</a></li>
+  <li><a href="#PressableObject" title="https://hcis.io/ontology/aicapstone/2026/group09/PressableObject">pressable object</a></li>
+  <li><a href="#PressingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/PressingAffordance">pressing affordance</a></li>
+  <li><a href="#PumpBottle" title="https://hcis.io/ontology/aicapstone/2026/group09/PumpBottle">pump bottle</a></li>
+ </ul>
+ <div class="entity" id="https://hcis.io/ontology/aicapstone/2026/GraspableObject">
+  <h3>graspable object<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/GraspableObject</p>
+  <div class="comment">
+   <span class="markdown">A physical object that has at least one grasping affordance and can therefore be grasped by a robot gripper. Defined as the intersection of cap:PhysicalObject and the existential restriction cap:hasAffordance some cap:GraspingAffordance.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/PhysicalObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/PhysicalObject">physical object</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance">grasping affordance</a> <sup class="type-c" title="class">c</sup>)
+   </dd>
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/PhysicalObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/PhysicalObject">physical object</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PressableObject">
+  <h3>pressable object<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/PressableObject</p>
+  <div class="comment">
+   <span class="markdown">A physical object that has at least one pressing affordance and can therefore be pressed by a robot in the task context.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/PhysicalObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/PhysicalObject">physical object</a> <sup class="type-c" title="class">c</sup> <span class="logic">and</span> (<a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#PressingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/PressingAffordance">pressing affordance</a> <sup class="type-c" title="class">c</sup>)
+   </dd>
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/PhysicalObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/PhysicalObject">physical object</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PressingAffordance">
+  <h3>pressing affordance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/PressingAffordance</p>
+  <div class="comment">
+   <span class="markdown">An affordance by which an articulated object can be pressed along a task-relevant joint while remaining stable.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/Affordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/Affordance">affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#pumpBottle01PressingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01PressingAffordance">pump bottle 01 pressing affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PumpBottle">
+  <h3>pump bottle<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/PumpBottle</p>
+  <div class="comment">
+   <span class="markdown">An advanced-level articulated bottle-shaped object with a pressable pump head, aligned with the aicapstone pump_bottle object.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/PhysicalObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/PhysicalObject">physical object</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#pumpBottle01" title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01">pump bottle 01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#usedInTask" title="https://hcis.io/ontology/aicapstone/2026/group09/usedInTask">used in task</a></li>
+ </ul>
+ <div class="entity" id="usedInTask">
+  <h3>used in task<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/usedInTask</p>
+  <div class="comment">
+   <span class="markdown">Relates a physical object to the manipulation task in which it participates.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://hcis.io/ontology/aicapstone/2026/PhysicalObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/PhysicalObject">physical object</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://hcis.io/ontology/aicapstone/2026/ManipulationTask" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/ManipulationTask">manipulation task</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#hasGripWidthMM" title="https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM">has grip width in millimeters</a></li>
+ </ul>
+ <div class="entity" id="hasGripWidthMM">
+  <h3>has grip width in millimeters<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM</p>
+  <div class="comment">
+   <span class="markdown">Records the approximate grip width in millimeters required to grasp this object with the group 09 gripper.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://hcis.io/ontology/aicapstone/2026/PhysicalObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/PhysicalObject">physical object</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#basket01" title="https://hcis.io/ontology/aicapstone/2026/group09/basket01">basket 01</a></li>
+  <li><a href="#basket01ContainmentAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/basket01ContainmentAffordance">basket 01 containment affordance</a></li>
+  <li><a href="#blueCup01" title="https://hcis.io/ontology/aicapstone/2026/group09/blueCup01">blue cup 01</a></li>
+  <li><a href="#blueCup01GraspingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/blueCup01GraspingAffordance">blue cup 01 grasping affordance</a></li>
+  <li><a href="#blueCup01StackabilityAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/blueCup01StackabilityAffordance">blue cup 01 stackability affordance</a></li>
+  <li><a href="#cupStackingTask" title="https://hcis.io/ontology/aicapstone/2026/group09/cupStackingTask">cup stacking task</a></li>
+  <li><a href="#cutleryArrangementTask" title="https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask">cutlery arrangement task</a></li>
+  <li><a href="#fork01" title="https://hcis.io/ontology/aicapstone/2026/group09/fork01">fork 01</a></li>
+  <li><a href="#fork01GraspingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/fork01GraspingAffordance">fork 01 grasping affordance</a></li>
+  <li><a href="#group09Team" title="https://hcis.io/ontology/aicapstone/2026/group09/group09Team">Group 09</a></li>
+  <li><a href="#gripper01" title="https://hcis.io/ontology/aicapstone/2026/group09/gripper01">group 09 gripper</a></li>
+  <li><a href="#knife01" title="https://hcis.io/ontology/aicapstone/2026/group09/knife01">knife 01</a></li>
+  <li><a href="#knife01GraspingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/knife01GraspingAffordance">knife 01 grasping affordance</a></li>
+  <li><a href="#pinkCup01" title="https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01">pink cup 01</a></li>
+  <li><a href="#pinkCup01GraspingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01GraspingAffordance">pink cup 01 grasping affordance</a></li>
+  <li><a href="#pinkCup01StackabilityAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01StackabilityAffordance">pink cup 01 stackability affordance</a></li>
+  <li><a href="#plate01" title="https://hcis.io/ontology/aicapstone/2026/group09/plate01">plate 01</a></li>
+  <li><a href="#plate01SupportAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/plate01SupportAffordance">plate 01 support affordance</a></li>
+  <li><a href="#pumpBottle01" title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01">pump bottle 01</a></li>
+  <li><a href="#pumpBottle01PressingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01PressingAffordance">pump bottle 01 pressing affordance</a></li>
+  <li><a href="#pumpBottlePressTask" title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottlePressTask">pump bottle press task</a></li>
+  <li><a href="#block01" title="https://hcis.io/ontology/aicapstone/2026/group09/block01">toy block 01</a></li>
+  <li><a href="#block01GraspingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/block01GraspingAffordance">toy block 01 grasping affordance</a></li>
+  <li><a href="#blockCollectionTask" title="https://hcis.io/ontology/aicapstone/2026/group09/blockCollectionTask">toy block collection task</a></li>
+ </ul>
+ <div class="entity" id="basket01">
+  <h3>basket 01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/basket01</p>
+  <div class="comment">
+   <span class="markdown">The basket used as the container target in the toy-block-collection task.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/Basket" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/Basket">basket</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <a href="#basket01ContainmentAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/basket01ContainmentAffordance">basket 01 containment affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTaskRole" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTaskRole">has task role</a> <sup class="type-op" title="object property">op</sup> <a href="https://hcis.io/ontology/aicapstone/2026/ContainerTarget" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/ContainerTarget">Container Target</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#usedInTask" title="https://hcis.io/ontology/aicapstone/2026/group09/usedInTask">used in task</a> <sup class="type-op" title="object property">op</sup> <a href="#blockCollectionTask" title="https://hcis.io/ontology/aicapstone/2026/group09/blockCollectionTask">toy block collection task</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasColor" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasColor">has color</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"brown"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel">has object label</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"basket"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame">has pose frame</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"world/object_basket_01"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="basket01ContainmentAffordance">
+  <h3>basket 01 containment affordance<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/basket01ContainmentAffordance</p>
+  <div class="comment">
+   <span class="markdown">A containment affordance associated with the basket.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/ContainmentAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/ContainmentAffordance">containment affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="blueCup01">
+  <h3>blue cup 01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/blueCup01</p>
+  <div class="comment">
+   <span class="markdown">The blue cup observed in the cup-stacking task.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/Cup" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/Cup">cup</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy">can be manipulated by</a> <sup class="type-op" title="object property">op</sup> <a href="#gripper01" title="https://hcis.io/ontology/aicapstone/2026/group09/gripper01">group 09 gripper</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <a href="#blueCup01GraspingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/blueCup01GraspingAffordance">blue cup 01 grasping affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <a href="#blueCup01StackabilityAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/blueCup01StackabilityAffordance">blue cup 01 stackability affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTaskRole" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTaskRole">has task role</a> <sup class="type-op" title="object property">op</sup> <a href="https://hcis.io/ontology/aicapstone/2026/TargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/TargetObject">Target Object</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#usedInTask" title="https://hcis.io/ontology/aicapstone/2026/group09/usedInTask">used in task</a> <sup class="type-op" title="object property">op</sup> <a href="#cupStackingTask" title="https://hcis.io/ontology/aicapstone/2026/group09/cupStackingTask">cup stacking task</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasColor" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasColor">has color</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"blue"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel">has object label</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"blue_cup"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame">has pose frame</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"world/object_blue_cup_01"</span>
+   </dd>
+   <dd>
+    <a href="#hasGripWidthMM" title="https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM">has grip width in millimeters</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"75"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="blueCup01GraspingAffordance">
+  <h3>blue cup 01 grasping affordance<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/blueCup01GraspingAffordance</p>
+  <div class="comment">
+   <span class="markdown">A grasping affordance associated with the blue cup.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance">grasping affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="blueCup01StackabilityAffordance">
+  <h3>blue cup 01 stackability affordance<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/blueCup01StackabilityAffordance</p>
+  <div class="comment">
+   <span class="markdown">A stackability affordance associated with the blue cup.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/StackabilityAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/StackabilityAffordance">stackability affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="cupStackingTask">
+  <h3>cup stacking task<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/cupStackingTask</p>
+  <div class="comment">
+   <span class="markdown">The baseline cup-stacking manipulation task for group 09.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/ManipulationTask" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/ManipulationTask">manipulation task</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTargetObject">has target object</a> <sup class="type-op" title="object property">op</sup> <a href="#blueCup01" title="https://hcis.io/ontology/aicapstone/2026/group09/blueCup01">blue cup 01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTargetObject">has target object</a> <sup class="type-op" title="object property">op</sup> <a href="#pinkCup01" title="https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01">pink cup 01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="cutleryArrangementTask">
+  <h3>cutlery arrangement task<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask</p>
+  <div class="comment">
+   <span class="markdown">The baseline cutlery-arrangement manipulation task for group 09.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/ManipulationTask" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/ManipulationTask">manipulation task</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasReferenceObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasReferenceObject">has reference object</a> <sup class="type-op" title="object property">op</sup> <a href="#plate01" title="https://hcis.io/ontology/aicapstone/2026/group09/plate01">plate 01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTargetObject">has target object</a> <sup class="type-op" title="object property">op</sup> <a href="#fork01" title="https://hcis.io/ontology/aicapstone/2026/group09/fork01">fork 01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTargetObject">has target object</a> <sup class="type-op" title="object property">op</sup> <a href="#knife01" title="https://hcis.io/ontology/aicapstone/2026/group09/knife01">knife 01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="fork01">
+  <h3>fork 01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/fork01</p>
+  <div class="comment">
+   <span class="markdown">The fork observed in the cutlery-arrangement task.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/Fork" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/Fork">fork</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy">can be manipulated by</a> <sup class="type-op" title="object property">op</sup> <a href="#gripper01" title="https://hcis.io/ontology/aicapstone/2026/group09/gripper01">group 09 gripper</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <a href="#fork01GraspingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/fork01GraspingAffordance">fork 01 grasping affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTaskRole" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTaskRole">has task role</a> <sup class="type-op" title="object property">op</sup> <a href="https://hcis.io/ontology/aicapstone/2026/TargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/TargetObject">Target Object</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#usedInTask" title="https://hcis.io/ontology/aicapstone/2026/group09/usedInTask">used in task</a> <sup class="type-op" title="object property">op</sup> <a href="#cutleryArrangementTask" title="https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask">cutlery arrangement task</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasColor" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasColor">has color</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"silver"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel">has object label</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"fork"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame">has pose frame</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"world/object_fork_01"</span>
+   </dd>
+   <dd>
+    <a href="#hasGripWidthMM" title="https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM">has grip width in millimeters</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"20"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="fork01GraspingAffordance">
+  <h3>fork 01 grasping affordance<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/fork01GraspingAffordance</p>
+  <div class="comment">
+   <span class="markdown">A grasping affordance associated with the fork.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance">grasping affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="group09Team">
+  <h3>Group 09<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/group09Team</p>
+  <div class="comment">
+   <span class="markdown">The student group responsible for this ontology submission.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://xmlns.com/foaf/0.1/Organization" target="_blank" title="http://xmlns.com/foaf/0.1/Organization">Organization</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="gripper01">
+  <h3>group 09 gripper<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/gripper01</p>
+  <div class="comment">
+   <span class="markdown">The gripper used as the manipulation end effector in the group 09 environment.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/EndEffector" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/EndEffector">end effector</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="knife01">
+  <h3>knife 01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/knife01</p>
+  <div class="comment">
+   <span class="markdown">The knife observed in the cutlery-arrangement task.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/Knife" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/Knife">knife</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy">can be manipulated by</a> <sup class="type-op" title="object property">op</sup> <a href="#gripper01" title="https://hcis.io/ontology/aicapstone/2026/group09/gripper01">group 09 gripper</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <a href="#knife01GraspingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/knife01GraspingAffordance">knife 01 grasping affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTaskRole" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTaskRole">has task role</a> <sup class="type-op" title="object property">op</sup> <a href="https://hcis.io/ontology/aicapstone/2026/TargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/TargetObject">Target Object</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#usedInTask" title="https://hcis.io/ontology/aicapstone/2026/group09/usedInTask">used in task</a> <sup class="type-op" title="object property">op</sup> <a href="#cutleryArrangementTask" title="https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask">cutlery arrangement task</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasColor" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasColor">has color</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"silver"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel">has object label</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"knife"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame">has pose frame</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"world/object_knife_01"</span>
+   </dd>
+   <dd>
+    <a href="#hasGripWidthMM" title="https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM">has grip width in millimeters</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"20"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="knife01GraspingAffordance">
+  <h3>knife 01 grasping affordance<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/knife01GraspingAffordance</p>
+  <div class="comment">
+   <span class="markdown">A grasping affordance associated with the knife.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance">grasping affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="pinkCup01">
+  <h3>pink cup 01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01</p>
+  <div class="comment">
+   <span class="markdown">The pink cup observed in the cup-stacking task.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/Cup" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/Cup">cup</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy">can be manipulated by</a> <sup class="type-op" title="object property">op</sup> <a href="#gripper01" title="https://hcis.io/ontology/aicapstone/2026/group09/gripper01">group 09 gripper</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <a href="#pinkCup01GraspingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01GraspingAffordance">pink cup 01 grasping affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <a href="#pinkCup01StackabilityAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01StackabilityAffordance">pink cup 01 stackability affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTaskRole" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTaskRole">has task role</a> <sup class="type-op" title="object property">op</sup> <a href="https://hcis.io/ontology/aicapstone/2026/TargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/TargetObject">Target Object</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#usedInTask" title="https://hcis.io/ontology/aicapstone/2026/group09/usedInTask">used in task</a> <sup class="type-op" title="object property">op</sup> <a href="#cupStackingTask" title="https://hcis.io/ontology/aicapstone/2026/group09/cupStackingTask">cup stacking task</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasColor" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasColor">has color</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"pink"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel">has object label</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"pink_cup"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame">has pose frame</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"world/object_pink_cup_01"</span>
+   </dd>
+   <dd>
+    <a href="#hasGripWidthMM" title="https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM">has grip width in millimeters</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"75"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="pinkCup01GraspingAffordance">
+  <h3>pink cup 01 grasping affordance<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01GraspingAffordance</p>
+  <div class="comment">
+   <span class="markdown">A grasping affordance associated with the pink cup.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance">grasping affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="pinkCup01StackabilityAffordance">
+  <h3>pink cup 01 stackability affordance<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01StackabilityAffordance</p>
+  <div class="comment">
+   <span class="markdown">A stackability affordance associated with the pink cup.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/StackabilityAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/StackabilityAffordance">stackability affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="plate01">
+  <h3>plate 01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/plate01</p>
+  <div class="comment">
+   <span class="markdown">The plate used as a reference object in the cutlery-arrangement task.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/Plate" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/Plate">plate</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <a href="#plate01SupportAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/plate01SupportAffordance">plate 01 support affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTaskRole" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTaskRole">has task role</a> <sup class="type-op" title="object property">op</sup> <a href="https://hcis.io/ontology/aicapstone/2026/ReferenceObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/ReferenceObject">Reference Object</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#usedInTask" title="https://hcis.io/ontology/aicapstone/2026/group09/usedInTask">used in task</a> <sup class="type-op" title="object property">op</sup> <a href="#cutleryArrangementTask" title="https://hcis.io/ontology/aicapstone/2026/group09/cutleryArrangementTask">cutlery arrangement task</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasColor" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasColor">has color</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"white"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel">has object label</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"plate"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame">has pose frame</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"world/object_plate_01"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="plate01SupportAffordance">
+  <h3>plate 01 support affordance<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/plate01SupportAffordance</p>
+  <div class="comment">
+   <span class="markdown">A support affordance associated with the plate.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/SupportAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/SupportAffordance">support affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="pumpBottle01">
+  <h3>pump bottle 01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01</p>
+  <div class="comment">
+   <span class="markdown">The advanced-level pump bottle used in the pump bottle press task, matching the aicapstone object label pump_bottle.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#PumpBottle" title="https://hcis.io/ontology/aicapstone/2026/group09/PumpBottle">pump bottle</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy">can be manipulated by</a> <sup class="type-op" title="object property">op</sup> <a href="#gripper01" title="https://hcis.io/ontology/aicapstone/2026/group09/gripper01">group 09 gripper</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <a href="#pumpBottle01PressingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01PressingAffordance">pump bottle 01 pressing affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTaskRole" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTaskRole">has task role</a> <sup class="type-op" title="object property">op</sup> <a href="https://hcis.io/ontology/aicapstone/2026/TargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/TargetObject">Target Object</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#usedInTask" title="https://hcis.io/ontology/aicapstone/2026/group09/usedInTask">used in task</a> <sup class="type-op" title="object property">op</sup> <a href="#pumpBottlePressTask" title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottlePressTask">pump bottle press task</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasColor" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasColor">has color</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"white"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel">has object label</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"pump_bottle"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame">has pose frame</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"world/object_pump_bottle_01"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="pumpBottle01PressingAffordance">
+  <h3>pump bottle 01 pressing affordance<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01PressingAffordance</p>
+  <div class="comment">
+   <span class="markdown">A pressing affordance associated with the pump bottle, modeled after the aicapstone pump_bottle_press task where the pump head is pressed once while the bottle remains stable.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#PressingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/PressingAffordance">pressing affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="pumpBottlePressTask">
+  <h3>pump bottle press task<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/pumpBottlePressTask</p>
+  <div class="comment">
+   <span class="markdown">The advanced manipulation task, where the robot presses the pump bottle once while keeping the bottle upright.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/ManipulationTask" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/ManipulationTask">manipulation task</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTargetObject">has target object</a> <sup class="type-op" title="object property">op</sup> <a href="#pumpBottle01" title="https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01">pump bottle 01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="block01">
+  <h3>toy block 01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/block01</p>
+  <div class="comment">
+   <span class="markdown">A toy block collected into the basket in the toy-block-collection task.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/ToyBlock" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/ToyBlock">toy block</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/canBeManipulatedBy">can be manipulated by</a> <sup class="type-op" title="object property">op</sup> <a href="#gripper01" title="https://hcis.io/ontology/aicapstone/2026/group09/gripper01">group 09 gripper</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasAffordance">has affordance</a> <sup class="type-op" title="object property">op</sup> <a href="#block01GraspingAffordance" title="https://hcis.io/ontology/aicapstone/2026/group09/block01GraspingAffordance">toy block 01 grasping affordance</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTaskRole" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTaskRole">has task role</a> <sup class="type-op" title="object property">op</sup> <a href="https://hcis.io/ontology/aicapstone/2026/CollectableObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/CollectableObject">Collectable Object</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#usedInTask" title="https://hcis.io/ontology/aicapstone/2026/group09/usedInTask">used in task</a> <sup class="type-op" title="object property">op</sup> <a href="#blockCollectionTask" title="https://hcis.io/ontology/aicapstone/2026/group09/blockCollectionTask">toy block collection task</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasColor" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasColor">has color</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"red"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasObjectLabel">has object label</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"toy_block"</span>
+   </dd>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasPoseFrame">has pose frame</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"world/object_block_01"</span>
+   </dd>
+   <dd>
+    <a href="#hasGripWidthMM" title="https://hcis.io/ontology/aicapstone/2026/group09/hasGripWidthMM">has grip width in millimeters</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"40"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="block01GraspingAffordance">
+  <h3>toy block 01 grasping affordance<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/block01GraspingAffordance</p>
+  <div class="comment">
+   <span class="markdown">A grasping affordance associated with the toy block.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance">grasping affordance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="blockCollectionTask">
+  <h3>toy block collection task<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://hcis.io/ontology/aicapstone/2026/group09/blockCollectionTask</p>
+  <div class="comment">
+   <span class="markdown">The baseline toy-block-collection manipulation task for group 09.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/ManipulationTask" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/ManipulationTask">manipulation task</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="https://hcis.io/ontology/aicapstone/2026/hasTargetObject" target="_blank" title="https://hcis.io/ontology/aicapstone/2026/hasTargetObject">has target object</a> <sup class="type-op" title="object property">op</sup> <a href="#block01" title="https://hcis.io/ontology/aicapstone/2026/group09/block01">toy block 01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>

@@ -6,11 +6,13 @@
 
 - `ontology/imports/course-affordance.ttl`：課程共用本體，包含 `cap:GraspableObject` 所需的基礎詞彙。
 - `ontology/imports/course-alignment.ttl`：課程層級的 SKOS 對應說明。
-- `ontology/group-ontology.ttl`：第 09 組自行建模的本體，包含 `cap:GraspableObject` 的 OWL 等價類定義、物件個體、affordance 個體、任務個體，以及組別自定義的 properties。
-- `ontology/inferred-results.ttl`：推論後產生的 `cap:GraspableObject` 成員關係。
+- `ontology/group-ontology.ttl`：第 09 組自行建模的本體，包含 `cap:GraspableObject` 與 `g09:PressableObject` 的 OWL 等價類定義、物件個體、affordance 個體、任務個體，以及組別自定義的 properties。
+- `ontology/inferred-results.ttl`：推論後產生的 `cap:GraspableObject` 與 `g09:PressableObject` 成員關係。
 - `queries/graspable_objects.rq`：查詢推論後可抓取物件的 SPARQL。
-- `results/graspable_objects_output.txt`：查詢輸出結果。
-- `src/reason_and_export.py`：Python materializer，用來推論 `cap:GraspableObject` 並匯出結果。
+- `queries/pressable_objects.rq`：查詢推論後可按壓物件的 SPARQL。
+- `results/graspable_objects_output.txt`：可抓取物件的查詢輸出結果。
+- `results/pressable_objects_output.txt`：可按壓物件的查詢輸出結果。
+- `src/reason_and_export.py`：Python materializer，用來推論 `cap:GraspableObject` 與 `g09:PressableObject` 並匯出結果。
 - `report.md`：作業報告。
 
 ## 第 09 組建模內容
@@ -21,19 +23,23 @@
 - 餐具排列：`knife01`、`fork01`、`plate01`
 - 積木收集：`block01`、`basket01`
 
+另外補充一個 advanced level 物件：
+- 幫浦瓶按壓：`pumpBottle01`
+
 本組本體使用 `https://hcis.io/ontology/aicapstone/2026/group09/`，前綴為 `g09:`。課程共用詞彙，例如 `cap:Cup`、`cap:Knife`、`cap:GraspingAffordance`、`cap:GraspableObject`，都保留在 `cap:` 命名空間。
 
 ## 物件與 Affordance 對應表
 
-| 物件 | 類型 | 任務角色 | Affordance | 是否可抓取（推論） |
-| --- | --- | --- | --- | --- |
-| `g09:blueCup01` | `cap:Cup` | `cap:TargetObject` | grasping, stackability | ✅ 是 |
-| `g09:pinkCup01` | `cap:Cup` | `cap:TargetObject` | grasping, stackability | ✅ 是 |
-| `g09:knife01` | `cap:Knife` | `cap:TargetObject` | grasping | ✅ 是 |
-| `g09:fork01` | `cap:Fork` | `cap:TargetObject` | grasping | ✅ 是 |
-| `g09:plate01` | `cap:Plate` | `cap:ReferenceObject` | support | ❌ 否 |
-| `g09:block01` | `cap:ToyBlock` | `cap:CollectableObject` | grasping | ✅ 是 |
-| `g09:basket01` | `cap:Basket` | `cap:ContainerTarget` | containment | ❌ 否 |
+| 物件 | 類型 | 任務角色 | Affordance | 是否可抓取（推論） | 是否可按壓（推論） |
+| --- | --- | --- | --- | --- | --- |
+| `g09:blueCup01` | `cap:Cup` | `cap:TargetObject` | grasping, stackability | ✅ 是 | ❌ 否 |
+| `g09:pinkCup01` | `cap:Cup` | `cap:TargetObject` | grasping, stackability | ✅ 是 | ❌ 否 |
+| `g09:knife01` | `cap:Knife` | `cap:TargetObject` | grasping | ✅ 是 | ❌ 否 |
+| `g09:fork01` | `cap:Fork` | `cap:TargetObject` | grasping | ✅ 是 | ❌ 否 |
+| `g09:plate01` | `cap:Plate` | `cap:ReferenceObject` | support | ❌ 否 | ❌ 否 |
+| `g09:block01` | `cap:ToyBlock` | `cap:CollectableObject` | grasping | ✅ 是 | ❌ 否 |
+| `g09:basket01` | `cap:Basket` | `cap:ContainerTarget` | containment | ❌ 否 | ❌ 否 |
+| `g09:pumpBottle01` | `g09:PumpBottle` | `cap:TargetObject` | pressing | ❌ 否 | ✅ 是 |
 
 ## 推論模式
 
@@ -45,7 +51,7 @@ cap:GraspableObject ≡ cap:PhysicalObject ⊓ ∃cap:hasAffordance.cap:Grasping
 
 即一個物理物件若至少有一個 `cap:hasAffordance` 且該 affordance 的型別為 `cap:GraspingAffordance`，就會被推論成 `cap:GraspableObject`。
 
-本組本體針對杯子、刀子、叉子與積木建立 grasping affordance 個體，因此這些物件會被推論成 `cap:GraspableObject`。盤子與籃子只配置 support 與 containment affordance，所以不會出現在可抓取物件的查詢結果中。
+本組本體針對杯子、刀子、叉子與積木建立 grasping affordance 個體，因此這些物件會被推論成 `cap:GraspableObject`。advanced level 的 `pumpBottle01` 則只配置 group-specific 的 pressing affordance，因此它不會出現在 graspable-object 查詢中，而會被推論成 `g09:PressableObject`。盤子與籃子只配置 support 與 containment affordance，所以也不會出現在可抓取物件的查詢結果中。
 
 ## 命名空間說明
 
@@ -56,7 +62,7 @@ cap:GraspableObject ≡ cap:PhysicalObject ⊓ ∃cap:hasAffordance.cap:Grasping
 
 ## SPARQL 查詢
 
-SPARQL 查詢位於 `queries/graspable_objects.rq`，應該在「包含 course ontology 與 group ontology 的推論圖」上執行。
+SPARQL 查詢位於 `queries/graspable_objects.rq` 與 `queries/pressable_objects.rq`，應該在「包含 course ontology 與 group ontology 的推論圖」上執行。
 
 範例查詢：
 
@@ -84,23 +90,29 @@ ORDER BY ?obj
 - `g09:fork01`
 - `g09:block01`
 
-`plate01` 與 `basket01` 不應出現在結果中，因為它們不是用 grasping affordance 建模。
+`plate01`、`basket01` 與 `pumpBottle01` 不應出現在 graspable 結果中，因為它們不是用 grasping affordance 建模。
+
+預期會被推論為可按壓物件的有：
+
+- `g09:pumpBottle01`
+
+`pumpBottle01` 來自 advanced-level `pump_bottle_press` 設計；在該設計中，任務描述是 `press the pump bottle once.`。本組在 HW5 中保留這個 task naming，並以 `pressing` affordance 與 `g09:PressableObject` 表達它是 advanced task 中可按壓的目標物件；同時保留 `hasObjectLabel` 與 `hasPoseFrame` 等較適合作業本體的語意資訊。
 
 ## 產生與驗證說明
 
-`ontology/inferred-results.ttl` 會記錄第 09 組推論出的 `cap:GraspableObject` 成員。
-這個檔案是由 Python workflow 產生的推論輸出，也會搭配查詢結果一起提交。
+`ontology/inferred-results.ttl` 會記錄第 09 組推論出的 `cap:GraspableObject` 與 `g09:PressableObject` 成員。
+這個檔案是由 Python workflow 產生的推論輸出，也會搭配兩份查詢結果一起提交。
 
 ## 推理機制
 
-本作業使用一個可重現的 Python workflow，基於 RDFLib 來 materialize `cap:GraspableObject`。
+本作業使用一個可重現的 Python workflow，基於 RDFLib 來 materialize `cap:GraspableObject` 與 `g09:PressableObject`。
 
-`cap:GraspableObject` 在 `ontology/group-ontology.ttl` 中有正式的 OWL `owl:equivalentClass` 定義。由於 RDFLib 不支援完整 OWL-DL 推理，腳本會對每個候選物件檢查兩個條件：
+`cap:GraspableObject` 與 `g09:PressableObject` 在 `ontology/group-ontology.ttl` 中都有正式的 OWL `owl:equivalentClass` 定義。由於 RDFLib 不支援完整 OWL-DL 推理，腳本會對每個候選物件檢查兩個條件：
 
 1. 該物件是 `cap:PhysicalObject`，或是其子類別
-2. 該物件至少有一個 `cap:hasAffordance`，而且該 affordance 的型別是 `cap:GraspingAffordance`，或其子類別
+2. 該物件至少有一個 `cap:hasAffordance`，而且該 affordance 的型別符合目標推論類別所要求的 affordance 類型
 
-若兩個條件都成立，就會把 `?obj a cap:GraspableObject` 加入推論圖。
+若兩個條件都成立，就會把 `?obj a cap:GraspableObject` 或 `?obj a g09:PressableObject` 加入推論圖。
 
 這個推理邏輯忠實地反映了本體中 `owl:equivalentClass` 的語意。作業允許使用 RDFLib-based workflow，只要清楚說明額外使用的推理機制。
 
@@ -137,8 +149,9 @@ python src/reason_and_export.py
 
 1. 確認 `ontology/inferred-results.ttl` 有重新產生。
 2. 確認 `results/graspable_objects_output.txt` 有 5 筆預期結果。
-3. 如有需要，可以重新執行 `queries/graspable_objects.rq`，確認查詢結果一致。
-4. 若你有用 Widoco，確認 `docs/group09/doc/index-en.html` 已經成功生成，且頁面中有 classes、properties、named individuals 等區塊。
+3. 確認 `results/pressable_objects_output.txt` 有 1 筆預期結果。
+4. 如有需要，可以重新執行兩份 SPARQL 查詢，確認查詢結果一致。
+5. 若你有用 Widoco，確認 `docs/group09/doc/index-en.html` 已經成功生成，且頁面中有 classes、properties、named individuals 等區塊。
 
 ## Widoco 文件產生與查看
 
@@ -199,7 +212,9 @@ start docs/group09/doc/index-en.html
 | [course-affordance.ttl](ontology/imports/course-affordance.ttl) | 課程共用本體（imported） |
 | [course-alignment.ttl](ontology/imports/course-alignment.ttl) | SKOS 對應（imported） |
 | [graspable_objects.rq](queries/graspable_objects.rq) | SPARQL 查詢 |
+| [pressable_objects.rq](queries/pressable_objects.rq) | SPARQL 查詢 |
 | [graspable_objects_output.txt](results/graspable_objects_output.txt) | 查詢輸出 |
+| [pressable_objects_output.txt](results/pressable_objects_output.txt) | 查詢輸出 |
 | [reason_and_export.py](src/reason_and_export.py) | 推論腳本 |
 | [report.md](report.md) | 作業報告 |
 
@@ -207,7 +222,7 @@ start docs/group09/doc/index-en.html
 
 - **需求**：Python 3.8 以上、`rdflib`，以及本機的 `venv`（建議使用）。
 - **執行**：先啟用 `venv`，再執行 `python -m pip install -r requirements.txt` 和 `python src/reason_and_export.py`。
-- **輸出**：會重新產生 `ontology/inferred-results.ttl` 與 `results/graspable_objects_output.txt`。
+- **輸出**：會重新產生 `ontology/inferred-results.ttl`、`results/graspable_objects_output.txt` 與 `results/pressable_objects_output.txt`。
 
 ## 組員
 

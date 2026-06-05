@@ -1,0 +1,2 @@
+obj	label	role
+https://hcis.io/ontology/aicapstone/2026/group09/pumpBottle01	pump bottle 01	https://hcis.io/ontology/aicapstone/2026/TargetObject

@@ -1,12 +1,15 @@
 @prefix cap: <https://hcis.io/ontology/aicapstone/2026/> .
+@prefix g09: <https://hcis.io/ontology/aicapstone/2026/group09/> .
 
-<https://hcis.io/ontology/aicapstone/2026/group09/block01> a cap:GraspableObject .
+g09:block01 a cap:GraspableObject .
 
-<https://hcis.io/ontology/aicapstone/2026/group09/blueCup01> a cap:GraspableObject .
+g09:blueCup01 a cap:GraspableObject .
 
-<https://hcis.io/ontology/aicapstone/2026/group09/fork01> a cap:GraspableObject .
+g09:fork01 a cap:GraspableObject .
 
-<https://hcis.io/ontology/aicapstone/2026/group09/knife01> a cap:GraspableObject .
+g09:knife01 a cap:GraspableObject .
 
-<https://hcis.io/ontology/aicapstone/2026/group09/pinkCup01> a cap:GraspableObject .
+g09:pinkCup01 a cap:GraspableObject .
+
+g09:pumpBottle01 a g09:PressableObject .
 

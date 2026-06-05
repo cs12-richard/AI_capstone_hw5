@@ -45,6 +45,23 @@ cap:GraspableObject
         )
     ] .
 
+g09:PressableObject
+    a owl:Class ;
+    rdfs:label "pressable object"@en ;
+    rdfs:comment
+        "A physical object that has at least one pressing affordance and can therefore be pressed by a robot in the task context."@en ;
+    rdfs:subClassOf cap:PhysicalObject ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            cap:PhysicalObject
+            [ a owl:Restriction ;
+              owl:onProperty cap:hasAffordance ;
+              owl:someValuesFrom g09:PressingAffordance
+            ]
+        )
+    ] .
+
 # ── Group-specific properties ──────────────────────────────────────
 
 g09:usedInTask
@@ -82,12 +99,32 @@ g09:blockCollectionTask
     rdfs:comment "The baseline toy-block-collection manipulation task for group 09."@en ;
     cap:hasTargetObject g09:block01 .
 
+g09:pumpBottlePressTask
+    a cap:ManipulationTask ;
+    rdfs:label "pump bottle press task"@en ;
+    rdfs:comment "The advanced manipulation task, where the robot presses the pump bottle once while keeping the bottle upright."@en ;
+    cap:hasTargetObject g09:pumpBottle01 .
+
 # ── End effector ───────────────────────────────────────────────────
 
 g09:gripper01
     a cap:EndEffector ;
     rdfs:label "group 09 gripper"@en ;
     rdfs:comment "The gripper used as the manipulation end effector in the group 09 environment."@en .
+
+# ── Group-specific classes ─────────────────────────────────────────
+
+g09:PumpBottle
+    a owl:Class ;
+    rdfs:subClassOf cap:PhysicalObject ;
+    rdfs:label "pump bottle"@en ;
+    rdfs:comment "An advanced-level articulated bottle-shaped object with a pressable pump head, aligned with the aicapstone pump_bottle object."@en .
+
+g09:PressingAffordance
+    a owl:Class ;
+    rdfs:subClassOf cap:Affordance ;
+    rdfs:label "pressing affordance"@en ;
+    rdfs:comment "An affordance by which an articulated object can be pressed along a task-relevant joint while remaining stable."@en .
 
 # ── Object individuals ─────────────────────────────────────────────
 
@@ -222,3 +259,20 @@ g09:basket01ContainmentAffordance
     a cap:ContainmentAffordance ;
     rdfs:label "basket 01 containment affordance"@en ;
     rdfs:comment "A containment affordance associated with the basket."@en .
+
+g09:pumpBottle01
+    a g09:PumpBottle ;
+    rdfs:label "pump bottle 01"@en ;
+    rdfs:comment "The advanced-level pump bottle used in the pump bottle press task, matching the aicapstone object label pump_bottle."@en ;
+    cap:hasColor "white" ;
+    cap:hasObjectLabel "pump_bottle" ;
+    cap:hasTaskRole cap:TargetObject ;
+    cap:hasPoseFrame "world/object_pump_bottle_01" ;
+    cap:hasAffordance g09:pumpBottle01PressingAffordance ;
+    cap:canBeManipulatedBy g09:gripper01 ;
+    g09:usedInTask g09:pumpBottlePressTask .
+
+g09:pumpBottle01PressingAffordance
+    a g09:PressingAffordance ;
+    rdfs:label "pump bottle 01 pressing affordance"@en ;
+    rdfs:comment "A pressing affordance associated with the pump bottle, modeled after the aicapstone pump_bottle_press task where the pump head is pressed once while the bottle remains stable."@en .
