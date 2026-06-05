@@ -95,6 +95,13 @@ cap:StackabilityAffordance
     rdfs:comment
         "An affordance by which an object can participate in a stacking relation with another object."@en .
 
+cap:PressingAffordance
+    a owl:Class ;
+    rdfs:subClassOf cap:Affordance ;
+    rdfs:label "pressing affordance"@en ;
+    rdfs:comment
+        "An affordance by which an object may be pressed by a robot gripper."@en .
+
 cap:TaskRole
     a owl:Class ;
     rdfs:label "task role"@en ;
@@ -281,4 +288,16 @@ cap:Basket
         a owl:Restriction ;
         owl:onProperty cap:hasAffordance ;
         owl:someValuesFrom cap:ContainmentAffordance
+    ] .
+
+cap:PumpBottle
+    a owl:Class ;
+    rdfs:subClassOf cap:PhysicalObject ;
+    rdfs:label "pump bottle"@en ;
+    rdfs:comment
+        "A bottle target used to be pressed in the pump-bottle-press task."@en ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty cap:hasAffordance ;
+        owl:someValuesFrom cap:PressingAffordance
     ] .
