@@ -1,0 +1,14 @@
+PREFIX cap: <https://hcis.io/ontology/aicapstone/2026/>
+PREFIX g09: <https://hcis.io/ontology/aicapstone/2026/group09/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?obj ?label
+WHERE {
+
+    ?obj a g09:PumpBottle .
+
+    OPTIONAL {
+        ?obj rdfs:label ?label .
+    }
+
+}
