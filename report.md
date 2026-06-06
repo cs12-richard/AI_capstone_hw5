@@ -270,7 +270,7 @@ python src/reason_and_export.py
 ```
 
 ## 11. Discussion & Future Work
-針對本次作業的設計過程與語意網在機器人領域的應用，本小組提出以下幾點深入討論與未來改進方向：
+針對本次作業的設計過程與語意網在機器人領域的應用，本小組提出以下幾點討論：
 
 1. Advanced-Level 建模的擴展性討論
 
@@ -278,18 +278,10 @@ python src/reason_and_export.py
 
 2. 異質知識的整合：T-Box、A-Box 與 機器人控制
 
-    在實作過程中，我們體會到知識圖譜中 T-Box（概念層，如類別與屬性的定義） 與 A-Box（實例層，如具體的 blueCup01） 分離的好處。
+    在實作過程中，我們體會到知識圖譜中 T-Box與 A-Box 分離的好處。
 
     * 課程共用本體（cap:）作為頂層本體（Upper Ontology），規範了標準任務流程。
 
     * 組別本體（g09:） 則作為領域本體（Domain Ontology），定義了具體的物理場景。
 
-    這種架構在實際應用中，可以作為機器人任務規劃器（Task Planner，如 Task and Motion Planning, TAMP）的語意大腦。透過 SPARQL 查詢，機器人可以先在語意層面決定「該拿什麼（Graspable）」以及「該按什麼（Pressable）」，再將查詢結果的數值（如 g09:hasGripWidthMM）傳遞給低階的運動規劃演算法（Motion Planning），實現高低階控制的解耦。
-
-3. 未來改進方向
-
-    整合標準推理機與 Protégé 驗證： 計畫將 group-ontology.ttl 匯入 Protégé，並透過 HermiT 推理機導出完整的推理圖，藉此驗證自製 Python Materializer 的正確性，並修正可能存在的邏輯衝突。
-
-    引入 SWRL (Semantic Web Rule Language)： 為了克服 OWL 在表達關係規則上的限制，未來可以考慮引入 SWRL 規則。例如定義：「如果一個物件是 PumpBottle 且其剩餘容量大於 0，則它具備 PressingAffordance」，讓推理機制能夠處理更複雜的物理限制。
-
-    結合大型語言模型（LLM）與本體： 探討如何利用 LLM 自行解析 AI Capstone 的任務敘述（如 press the pump bottle once），並自動映射（Mapping）到本體中的 g09:pumpBottlePressTask，達成端到端（End-to-End）的語意自動建構。
+    這種架構在實際應用中，可以作為機器人任務規劃器的語意大腦。透過 SPARQL 查詢，機器人可以先在語意層面決定該拿什麼以及該按什麼，再將查詢結果的數值（如 g09:hasGripWidthMM）傳遞給低階的運動規劃演算法，實現高低階控制的解耦。
