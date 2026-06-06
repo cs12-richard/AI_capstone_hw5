@@ -1,75 +1,74 @@
-# AI Capstone 作業 5 - 第 09 組
+# AI Capstone Homework 5 - Group 09
 
-這個倉庫是 AI Capstone Homework 5 的本體式語意對應提交內容，包含本體、推論結果、SPARQL 查詢與報告。
+This repository contains the ontology-based semantic mapping submission for AI Capstone Homework 5, including the ontology, inferred results, SPARQL queries, and the project report.
 
-## 內容
+## Contents
 
-- `ontology/imports/course-affordance.ttl`：課程共用本體，包含 `cap:GraspableObject` 所需的基礎詞彙。
-- `ontology/imports/course-alignment.ttl`：課程層級的 SKOS 對應說明。
-- `ontology/group-ontology.ttl`：第 09 組自行建模的本體，包含 `cap:GraspableObject` 與 `g09:PressableObject` 的 OWL 等價類定義、物件個體、affordance 個體、任務個體，以及組別自定義的 properties。
-- `ontology/inferred-results.ttl`：推論後產生的 `cap:GraspableObject` 與 `g09:PressableObject` 成員關係。
-- `queries/graspable_objects.rq`：查詢推論後可抓取物件的 SPARQL。
-- `queries/pressable_objects.rq`：查詢推論後可按壓物件的 SPARQL。
-- `results/graspable_objects_output.txt`：可抓取物件的查詢輸出結果。
-- `results/pressable_objects_output.txt`：可按壓物件的查詢輸出結果。
-- `src/reason_and_export.py`：Python materializer，用來推論 `cap:GraspableObject` 與 `g09:PressableObject` 並匯出結果。
-- `report.md`：作業報告。
+- `ontology/imports/course-affordance.ttl`: The shared course ontology, containing the foundational vocabulary required for `cap:GraspableObject`.
+- `ontology/imports/course-alignment.ttl`: Course-level SKOS alignment specifications.
+- `ontology/group-ontology.ttl`: The custom ontology modeled by Group 09. It includes the OWL equivalent class definitions for `cap:GraspableObject` and `g09:PressableObject`, object individuals, affordance individuals, task individuals, and group-specific properties.
+- `ontology/inferred-results.ttl`: The inferred membership relations for `cap:GraspableObject` and `g09:PressableObject`.
+- `queries/graspable_objects.rq`: The SPARQL query used to retrieve inferred graspable objects.
+- `queries/pressable_objects.rq`: The SPARQL query used to retrieve inferred pressable objects.
+- `results/graspable_objects_output.txt`: The query output results for graspable objects.
+- `results/pressable_objects_output.txt`: The query output results for pressable objects.
+- `src/reason_and_export.py`: A Python materializer used to infer `cap:GraspableObject` and `g09:PressableObject` and export the results.
+- `report.md`: The project report.
 
-## 第 09 組建模內容
+## Group 09 Modeling Content
 
-第 09 組涵蓋作業中的三個基礎任務：
+Group 09 covers the three basic tasks from the assignment:
 
-- 杯子堆疊：`blueCup01`、`pinkCup01`
-- 餐具排列：`knife01`、`fork01`、`plate01`
-- 積木收集：`block01`、`basket01`
+- Cup Stacking: `blueCup01`, `pinkCup01`
+- Cutlery Arrangement: `knife01`, `fork01`, `plate01`
+- Toy Block Collection: `block01`, `basket01`
 
-另外補充一個 advanced level 物件：
-- 幫浦瓶按壓：`pumpBottle01`
+Additionally, one advanced-level object has been supplemented:
+- Pump Bottle Pressing: `pumpBottle01`
 
-本組本體使用 `https://hcis.io/ontology/aicapstone/2026/group09/`，前綴為 `g09:`。課程共用詞彙，例如 `cap:Cup`、`cap:Knife`、`cap:GraspingAffordance`、`cap:GraspableObject`，都保留在 `cap:` 命名空間。
+Our group ontology uses the namespace `https://hcis.io/ontology/aicapstone/2026/group09/` with the prefix `g09:`. Shared course vocabulary, such as `cap:Cup`, `cap:Knife`, `cap:GraspingAffordance`, and `cap:GraspableObject`, remains under the `cap:` namespace.
 
-## 物件與 Affordance 對應表
+## Object and Affordance Mapping Table
 
-| 物件 | 類型 | 任務角色 | Affordance | 是否可抓取（推論） | 是否可按壓（推論） |
+| Object | Type | Task Role | Affordance | Graspable (Inferred) | Pressable (Inferred) |
 | --- | --- | --- | --- | --- | --- |
-| `g09:blueCup01` | `cap:Cup` | `cap:TargetObject` | grasping, stackability | ✅ 是 | ❌ 否 |
-| `g09:pinkCup01` | `cap:Cup` | `cap:TargetObject` | grasping, stackability | ✅ 是 | ❌ 否 |
-| `g09:knife01` | `cap:Knife` | `cap:TargetObject` | grasping | ✅ 是 | ❌ 否 |
-| `g09:fork01` | `cap:Fork` | `cap:TargetObject` | grasping | ✅ 是 | ❌ 否 |
-| `g09:plate01` | `cap:Plate` | `cap:ReferenceObject` | support | ❌ 否 | ❌ 否 |
-| `g09:block01` | `cap:ToyBlock` | `cap:CollectableObject` | grasping | ✅ 是 | ❌ 否 |
-| `g09:basket01` | `cap:Basket` | `cap:ContainerTarget` | containment | ❌ 否 | ❌ 否 |
-| `g09:pumpBottle01` | `g09:PumpBottle` | `cap:TargetObject` | pressing | ❌ 否 | ✅ 是 |
+| `g09:blueCup01` | `cap:Cup` | `cap:TargetObject` | grasping, stackability | ✅ Yes | ❌ No |
+| `g09:pinkCup01` | `cap:Cup` | `cap:TargetObject` | grasping, stackability | ✅ Yes | ❌ No |
+| `g09:knife01` | `cap:Knife` | `cap:TargetObject` | grasping | ✅ Yes | ❌ No |
+| `g09:fork01` | `cap:Fork` | `cap:TargetObject` | grasping | ✅ Yes | ❌ No |
+| `g09:plate01` | `cap:Plate` | `cap:ReferenceObject` | support | ❌ No | ❌ No |
+| `g09:block01` | `cap:ToyBlock` | `cap:CollectableObject` | grasping | ✅ Yes | ❌ No |
+| `g09:basket01` | `cap:Basket` | `cap:ContainerTarget` | containment | ❌ No | ❌ No |
+| `g09:pumpBottle01` | `g09:PumpBottle` | `cap:TargetObject` | pressing | ❌ No | ✅ Yes |
 
-## 推論模式
+## Reasoning Pattern
 
-`cap:GraspableObject` 在 `ontology/group-ontology.ttl` 中使用 OWL `owl:equivalentClass` 定義為：
+`cap:GraspableObject` is defined in `ontology/group-ontology.ttl` using an OWL `owl:equivalentClass` definition as follows:
 
-```
-cap:GraspableObject ≡ cap:PhysicalObject ⊓ ∃cap:hasAffordance.cap:GraspingAffordance
-```
+$cap:GraspableObject \equiv cap:PhysicalObject \sqcap \exists cap:hasAffordance.cap:GraspingAffordance$
 
-即一個物理物件若至少有一個 `cap:hasAffordance` 且該 affordance 的型別為 `cap:GraspingAffordance`，就會被推論成 `cap:GraspableObject`。
 
-本組本體針對杯子、刀子、叉子與積木建立 grasping affordance 個體，因此這些物件會被推論成 `cap:GraspableObject`。advanced level 的 `pumpBottle01` 則只配置 group-specific 的 pressing affordance，因此它不會出現在 graspable-object 查詢中，而會被推論成 `g09:PressableObject`。盤子與籃子只配置 support 與 containment affordance，所以也不會出現在可抓取物件的查詢結果中。
+This means that if a physical object has at least one `cap:hasAffordance` and the type of that affordance is `cap:GraspingAffordance`, it will be inferred as a `cap:GraspableObject`.
 
-## 命名空間說明
+Our group ontology establishes grasping affordance individuals for the cups, knife, fork, and toy block, so these objects are inferred as `cap:GraspableObject`. The advanced-level `pumpBottle01` is only configured with a group-specific pressing affordance; therefore, it does not appear in the graspable-object query but is instead inferred as `g09:PressableObject`. The plate and basket are only configured with support and containment affordances, so they do not appear in the graspable object query results either.
 
-- 共用課程詞彙：`cap:` = `https://hcis.io/ontology/aicapstone/2026/`
-- 第 09 組詞彙：`g09:` = `https://hcis.io/ontology/aicapstone/2026/group09/`
+## Namespace Explanation
 
-第 09 組本體會把 local 物件個體、affordance 個體、gripper 個體、任務個體與組別自定義 properties（`g09:usedInTask`、`g09:hasGripWidthMM`）都放在 `g09:` 下；共用類別與屬性則維持在 `cap:` 下。`cap:GraspableObject` 的 OWL 等價類定義也放在 group ontology 中，因為課程本體未提供此定義。
+- Shared Course Vocabulary: `cap:` = `https://hcis.io/ontology/aicapstone/2026/`
+- Group 09 Vocabulary: `g09:` = `https://hcis.io/ontology/aicapstone/2026/group09/`
 
-## SPARQL 查詢
+The Group 09 ontology places local object individuals, affordance individuals, gripper individuals, task individuals, and group-specific properties (`g09:usedInTask`, `g09:hasGripWidthMM`) under `g09:`. Shared classes and properties are maintained under `cap:`. The OWL equivalent class definition for `cap:GraspableObject` is also placed in the group ontology, as it was not provided in the course ontology.
 
-SPARQL 查詢位於 `queries/graspable_objects.rq` 與 `queries/pressable_objects.rq`，應該在「包含 course ontology 與 group ontology 的推論圖」上執行。
+## SPARQL Queries
 
-範例查詢：
+The SPARQL queries are located in `queries/graspable_objects.rq` and `queries/pressable_objects.rq`, and should be executed on the "inferred graph containing both the course ontology and the group ontology".
+
+Example query:
 
 ```sparql
-PREFIX cap: <https://hcis.io/ontology/aicapstone/2026/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cap: [https://hcis.io/ontology/aicapstone/2026/](https://hcis.io/ontology/aicapstone/2026/)
+PREFIX rdf: [http://www.w3.org/1999/02/22-rdf-syntax-ns#](http://www.w3.org/1999/02/22-rdf-syntax-ns#)
+PREFIX rdfs: [http://www.w3.org/2000/01/rdf-schema#](http://www.w3.org/2000/01/rdf-schema#)
 
 SELECT DISTINCT ?obj ?label ?role
 WHERE {
@@ -79,156 +78,136 @@ WHERE {
 }
 ORDER BY ?obj
 ```
+## Expected Results
+The expected inferred results are as follows:
+* `g09:blueCup01`
+* `g09:pinkCup01`
+* `g09:knife01`
+* `g09:fork01`
+* `g09:block01`
 
-## 預期結果
+plate01, basket01, and pumpBottle01 should not appear in the graspable results, as they are not modeled with grasping affordance.
 
-預期會出現的推論結果如下：
+The object expected to be inferred as a pressable object is:
+* `g09:pumpBottle01`
 
-- `g09:blueCup01`
-- `g09:pinkCup01`
-- `g09:knife01`
-- `g09:fork01`
-- `g09:block01`
+`pumpBottle01` is derived from the advanced-level `pump_bottle_press` design, where the task description is `press the pump bottle once.`. In HW5, our group retains this task naming and uses a `pressing affordance` along with `g09:PressableObject` to semantically express that it is a pressable target object in an advanced task. We also retain semantic information useful for the assignment ontology, such as `hasObjectLabel` and` hasPoseFrame`.
 
-`plate01`、`basket01` 與 `pumpBottle01` 不應出現在 graspable 結果中，因為它們不是用 grasping affordance 建模。
+## Generation and Validation Instructions
+`ontology/inferred-results.ttl` records the `cap:GraspableObject` and `g09:PressableObject` members inferred by Group 09.This file is the inference output generated by the Python workflow and is submitted alongside the two query results.
 
-預期會被推論為可按壓物件的有：
+## Reasoning Mechanism
+This assignment utilizes a reproducible Python workflow based on RDFLib to materialize `cap:GraspableObject` and `g09:PressableObject`.
 
-- `g09:pumpBottle01`
+Both `cap:GraspableObject` and `g09:PressableObject` have formal OWL owl:equivalentClass definitions in `ontology/group-ontology.ttl`. Because RDFLib does not support full OWL-DL reasoning, the script checks two conditions for each candidate object:
 
-`pumpBottle01` 來自 advanced-level `pump_bottle_press` 設計；在該設計中，任務描述是 `press the pump bottle once.`。本組在 HW5 中保留這個 task naming，並以 `pressing` affordance 與 `g09:PressableObject` 表達它是 advanced task 中可按壓的目標物件；同時保留 `hasObjectLabel` 與 `hasPoseFrame` 等較適合作業本體的語意資訊。
+1. The object is a `cap:PhysicalObject`, or a subclass thereof.
+2. The object has at least one `cap:hasAffordance`, and the type of that affordance matches the affordance type required by the target inferred class.
 
-## 產生與驗證說明
+If both conditions are met, `?obj a cap:GraspableObject` or `?obj a g09:PressableObject` is added to the inferred graph.
 
-`ontology/inferred-results.ttl` 會記錄第 09 組推論出的 `cap:GraspableObject` 與 `g09:PressableObject` 成員。
-這個檔案是由 Python workflow 產生的推論輸出，也會搭配兩份查詢結果一起提交。
+This reasoning logic faithfully reflects the semantics of `owl:equivalentClass` in the ontology. The assignment allows the use of an RDFLib-based workflow, provided the additional reasoning mechanisms used are clearly explained.
 
-## 推理機制
-
-本作業使用一個可重現的 Python workflow，基於 RDFLib 來 materialize `cap:GraspableObject` 與 `g09:PressableObject`。
-
-`cap:GraspableObject` 與 `g09:PressableObject` 在 `ontology/group-ontology.ttl` 中都有正式的 OWL `owl:equivalentClass` 定義。由於 RDFLib 不支援完整 OWL-DL 推理，腳本會對每個候選物件檢查兩個條件：
-
-1. 該物件是 `cap:PhysicalObject`，或是其子類別
-2. 該物件至少有一個 `cap:hasAffordance`，而且該 affordance 的型別符合目標推論類別所要求的 affordance 類型
-
-若兩個條件都成立，就會把 `?obj a cap:GraspableObject` 或 `?obj a g09:PressableObject` 加入推論圖。
-
-這個推理邏輯忠實地反映了本體中 `owl:equivalentClass` 的語意。作業允許使用 RDFLib-based workflow，只要清楚說明額外使用的推理機制。
-
-## 如何執行
-
-### 方式 A：建立並啟用 venv
-
-如果你還沒有虛擬環境，可以先建立：
-
-```powershell
+## How to Run
+### Method A: Create and Activate venv
+If you do not have a virtual environment yet, you can create one:
+```PowerShell
 python -m venv .venv
 ```
-
-在 Windows PowerShell 啟用：
-
-```powershell
+Activate it in Windows PowerShell:
+```PowerShell
 .\.venv\Scripts\Activate.ps1
 ```
-
-如果 PowerShell 不允許執行腳本，可以先執行：
-
-```powershell
+If PowerShell restricts script execution, run this 
+first:
+```PowerShell
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
-
-### 方式 B：安裝套件並執行推論
-
-```powershell
+### Method B: Install Packages and Execute Inference
+```PowerShell
 python -m pip install -r requirements.txt
 python src/reason_and_export.py
 ```
+## How to Validate
+1. Confirm that `ontology/inferred-results.ttl` has been regenerated.
+2. Confirm that `results/graspable_objects_output.txt` contains the 5 expected results.
+3. Confirm that `results/pressable_objects_output.txt`contains the 1 expected result.
+4. If necessary, re-run both SPARQL queries to ensure the query results match.
+5. If using Widoco, confirm that `docs/group09/doc/index-en.html` has been successfully generated and that the page contains sections for classes, properties, and named individuals.
+## Widoco Documentation Generation and Viewing
+If you need to regenerate the ontology documentation, you can use Widoco to generate HTML files for `ontology/group-ontology.ttl.`
 
-## 如何驗證
+Prerequisite: You must have Java 17 installed on your computer, as Widoco requires a Java Runtime Environment.
 
-1. 確認 `ontology/inferred-results.ttl` 有重新產生。
-2. 確認 `results/graspable_objects_output.txt` 有 5 筆預期結果。
-3. 確認 `results/pressable_objects_output.txt` 有 1 筆預期結果。
-4. 如有需要，可以重新執行兩份 SPARQL 查詢，確認查詢結果一致。
-5. 若你有用 Widoco，確認 `docs/group09/doc/index-en.html` 已經成功生成，且頁面中有 classes、properties、named individuals 等區塊。
-
-## Widoco 文件產生與查看
-
-如果你要重新產生 ontology 文件，可以用 Widoco 針對 `ontology/group-ontology.ttl` 生成 HTML 文件。
-
-前提：電腦上要先有 Java 17，因為 Widoco 需要 Java 執行環境。
-
-執行指令範例：
-
-```powershell
+Example execution command:
+```PowerShell
 java -jar "widoco-1.4.25-jar-with-dependencies_JDK-17.jar" -ontFile "ontology/group-ontology.ttl" -outFolder "docs/group09" -rewriteAll -uniteSections
 ```
+Once generation is complete, the main page will be located at:
+* `docs/group09/doc/index-en.html`
 
-產生完成後，主要頁面會在：
-
-- `docs/group09/doc/index-en.html`
-
-如果要本機直接開啟查看，可以在 `docs/group09/doc` 目錄下啟動簡單伺服器：
-
-```powershell
+To view it locally, you can start a simple server in the `docs/group09/doc` directory:
+```PowerShell
 cd docs/group09/doc
 python -m http.server 8000
 ```
-
-然後用瀏覽器開啟：
-
-- `http://localhost:8000/index-en.html`
-
-或者直接用瀏覽器開檔案（不需要伺服器）：
-
-```powershell
+Then open your browser to:
+* http://localhost:8000/index-en.html
+Or open the file directly in your browser (no server required):
+```PowerShell
 start docs/group09/doc/index-en.html
 ```
+### How to Verify the Widoco Documentation
 
-### 如何確認 Widoco 文件是正確的
+After opening `index-en.html`, please verify that the page contains the following sections:
 
-開啟 `index-en.html` 後，請確認頁面中有以下區塊：
+1. **Title**: The top of the page should display "AI Capstone 2026 Group 09 Ontology" with a Release Date of 2026-05-27.
+2. **Overview**: You should see the ontology URI `https://hcis.io/ontology/aicapstone/2026/group09/` and the `owl:imports` links.
+3. **Cross-reference**: The following items should be listed:
+   * **Class**: `graspable object` (`cap:GraspableObject`), which should include the `owl:equivalentClass` definition.
+   * **Object Property**: `used in task` (`g09:usedInTask`), displaying its domain and range.
+   * **Data Property**: `has grip width in millimeters` (`g09:hasGripWidthMM`), displaying its domain and range.
+4. **Named Individuals**: All individuals should be listed, including:
+   * **Objects**: blue cup 01, pink cup 01, knife 01, fork 01, plate 01, toy block 01, basket 01.
+   * **Tasks**: cup stacking task, cutlery arrangement task, toy block collection task.
+   * **Others**: group 09 gripper, and the affordance individuals for each object.
 
-1. **標題**：頁面上方顯示 「AI Capstone 2026 Group 09 Ontology」，Release 日期為 2026-05-27。
-2. **Overview**：可以看到本體 URI `https://hcis.io/ontology/aicapstone/2026/group09/` 與 `owl:imports` 連結。
-3. **Cross-reference**：列出以下項目：
-   - Class：`graspable object`（`cap:GraspableObject`），應包含 `owl:equivalentClass` 定義
-   - Object Property：`used in task`（`g09:usedInTask`），顯示 domain / range
-   - Data Property：`has grip width in millimeters`（`g09:hasGripWidthMM`），顯示 domain / range
-4. **Named Individuals**：應列出所有個體，包括：
-   - 物件：blue cup 01、pink cup 01、knife 01、fork 01、plate 01、toy block 01、basket 01
-   - 任務：cup stacking task、cutlery arrangement task、toy block collection task
-   - 其他：group 09 gripper，以及各物件的 affordance 個體
+If the page is blank or missing any of these sections, please re-run the Widoco command.
 
-如果頁面空白或缺少上述任何區塊，請重新執行 Widoco 指令。
+---
 
-## 檔案連結
+### File Links
 
-| 檔案 | 說明 |
+| File | Description |
 | --- | --- |
-| [group-ontology.ttl](ontology/group-ontology.ttl) | 第 09 組本體（含 GraspableObject 定義） |
-| [inferred-results.ttl](ontology/inferred-results.ttl) | 推論結果 |
-| [course-affordance.ttl](ontology/imports/course-affordance.ttl) | 課程共用本體（imported） |
-| [course-alignment.ttl](ontology/imports/course-alignment.ttl) | SKOS 對應（imported） |
-| [graspable_objects.rq](queries/graspable_objects.rq) | SPARQL 查詢 |
-| [pressable_objects.rq](queries/pressable_objects.rq) | SPARQL 查詢 |
-| [graspable_objects_output.txt](results/graspable_objects_output.txt) | 查詢輸出 |
-| [pressable_objects_output.txt](results/pressable_objects_output.txt) | 查詢輸出 |
-| [reason_and_export.py](src/reason_and_export.py) | 推論腳本 |
-| [report.md](report.md) | 作業報告 |
+| `group-ontology.ttl` | Group 09 Ontology (including GraspableObject definition) |
+| `inferred-results.ttl` | Inferred Results |
+| `course-affordance.ttl` | Shared Course Ontology (imported) |
+| `course-alignment.ttl` | SKOS Alignment (imported) |
+| `graspable_objects.rq` | SPARQL Query |
+| `pressable_objects.rq` | SPARQL Query |
+| `graspable_objects_output.txt` | Query Output |
+| `pressable_objects_output.txt` | Query Output |
+| `reason_and_export.py` | Reasoning Script |
+| `report.md` | Project Report |
 
-## 可重現流程
+---
 
-- **需求**：Python 3.8 以上、`rdflib`，以及本機的 `venv`（建議使用）。
-- **執行**：先啟用 `venv`，再執行 `python -m pip install -r requirements.txt` 和 `python src/reason_and_export.py`。
-- **輸出**：會重新產生 `ontology/inferred-results.ttl`、`results/graspable_objects_output.txt` 與 `results/pressable_objects_output.txt`。
+### Reproducible Workflow
 
-## 組員
+* **Requirements**: Python 3.8+, `rdflib`, and a local `venv` (recommended).
+* **Execution**: First activate the `venv`, then run `python -m pip install -r requirements.txt` followed by `python src/reason_and_export.py`.
+* **Output**: This will regenerate `ontology/inferred-results.ttl`, `results/graspable_objects_output.txt`, and `results/pressable_objects_output.txt`.
 
-- 組員 1：徐柏安
-- 組員 2：鄭家齊
-- 組員 3：許維也
-- 組員 4：顏名柔
-- 組員 5：鄒政昇
-- 組員 6：黃柏翔
+---
+
+### Team Members
+
+* Member 1: 徐柏安 (Po-An Hsu)
+* Member 2: 鄭家齊 (Chia-Chi Cheng)
+* Member 3: 許維也 (Wei-Yeh Hsu)
+* Member 4: 顏名柔 (Ming-Jou Yen)
+* Member 5: 鄒政昇 (Cheng-Sheng Tsou)
+* Member 6: 黃柏翔 (Po-Hsiang Huang)
+
+
