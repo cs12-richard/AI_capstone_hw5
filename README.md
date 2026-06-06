@@ -203,11 +203,11 @@ If the page is blank or missing any of these sections, please re-run the Widoco 
 
 ### Team Members
 
-* Member 1: 徐柏安 (Po-An Hsu)
-* Member 2: 鄭家齊 (Chia-Chi Cheng)
-* Member 3: 許維也 (Wei-Yeh Hsu)
-* Member 4: 顏名柔 (Ming-Jou Yen)
-* Member 5: 鄒政昇 (Cheng-Sheng Tsou)
-* Member 6: 黃柏翔 (Po-Hsiang Huang)
+* Member 1: 徐柏安 
+* Member 2: 鄭家齊 
+* Member 3: 許維也 
+* Member 4: 顏名柔 
+* Member 5: 鄒政昇 
+* Member 6: 黃柏翔 
 
 

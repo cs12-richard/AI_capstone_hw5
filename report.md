@@ -225,11 +225,20 @@ g09:pumpBottle01
 
 此推論結果後續可透過 SPARQL 查詢進行驗證。
 
-## 9. 侷限性
+## 9. Limitations
+雖然本小組成功建立並驗證了包含 `GraspableObject` 與進階 `PressableObject` 的本體模型，但在現有架構下仍存在以下侷限性：
 
-這份提交的範圍仍以 HW5 語意建模為主，不包含 SHACL validation shapes，或 Protégé 截圖。
-推理使用 RDFLib-based materializer 而非完整 OWL-DL reasoner（如 HermiT），但推理邏輯與 `owl:equivalentClass` 定義的語意一致。
-如果課程流程要求特定 reasoner 的輸出，仍可依相同 ontology 與查詢結構重新產生 `inferred-results.ttl`。
+1. 推理機能力限制：
+由於本作業採用 RDFLib 搭配自定義的輕量級 Materializer 進行推理，而非使用標準的 OWL-DL 推理機。這導致系統無法原生處理複雜的描述邏輯的邏輯來模擬 `owl:equivalentClass` 的交集與存在量化限制。
+
+2. 靜態語意與動態物理狀態的脫鉤：
+目前的本體設計屬於靜態知識庫。在實際的 AI Capstone 機器人操作中，Affordance 往往會隨著環境動態改變。例如：一個幫浦瓶 `g09:pumpBottle01`被判定為 PressableObject，但如果它的蓋子被鎖住，或者機器人手臂的夾爪角度不對，該 Affordance 在物理層面上便會失效。目前本體缺乏表達動態前後置條件與環境脈絡的機制。
+
+3. 缺乏資料驗證機制：
+本專案目前未引入 SHACL 或 ShEx。雖然可以透過 OWL 的限制條件定義等價類，但無法在資料輸入階段強制驗證圖資料的結構完整性。
+
+4. 幾何與空間資訊的簡化：
+雖然本組擴充了 `g09:hasGripWidthMM` 作為 Datatype Property，但對於三維空間中的操作任務而言，單一的一維度夾取寬度不足以描述複雜的物體幾何形狀。本體尚未與 3D 網格或點雲等低階感測資料進行深度的語意連結。
 
 ## 10. Venv 使用說明
 
@@ -259,3 +268,28 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 python -m pip install -r requirements.txt
 python src/reason_and_export.py
 ```
+
+## 11. Discussion & Future Work
+針對本次作業的設計過程與語意網在機器人領域的應用，本小組提出以下幾點深入討論與未來改進方向：
+
+1. Advanced-Level 建模的擴展性討論
+
+    在本次作業中，我們將 `g09:PressingAffordance` 與 `g09:PressableObject` 作為進階任務的核心。這種設計模式展示了本體論的強大擴展性：當機器人需要學習新任務時，我們不需要重構整個底層架構，而只需要引入新的 Affordance 類別與等價類推理規則。 這種基於 Affordance 的建模方式，能讓機器人更好地泛化到未見過的物件。例如，未來若出現「按壓式開關」或「鍵盤按鍵」，只要賦予其 PressingAffordance，機器人便能自動將其歸類為 PressableObject。
+
+2. 異質知識的整合：T-Box、A-Box 與 機器人控制
+
+    在實作過程中，我們體會到知識圖譜中 T-Box（概念層，如類別與屬性的定義） 與 A-Box（實例層，如具體的 blueCup01） 分離的好處。
+
+    * 課程共用本體（cap:）作為頂層本體（Upper Ontology），規範了標準任務流程。
+
+    * 組別本體（g09:） 則作為領域本體（Domain Ontology），定義了具體的物理場景。
+
+    這種架構在實際應用中，可以作為機器人任務規劃器（Task Planner，如 Task and Motion Planning, TAMP）的語意大腦。透過 SPARQL 查詢，機器人可以先在語意層面決定「該拿什麼（Graspable）」以及「該按什麼（Pressable）」，再將查詢結果的數值（如 g09:hasGripWidthMM）傳遞給低階的運動規劃演算法（Motion Planning），實現高低階控制的解耦。
+
+3. 未來改進方向
+
+    整合標準推理機與 Protégé 驗證： 計畫將 group-ontology.ttl 匯入 Protégé，並透過 HermiT 推理機導出完整的推理圖，藉此驗證自製 Python Materializer 的正確性，並修正可能存在的邏輯衝突。
+
+    引入 SWRL (Semantic Web Rule Language)： 為了克服 OWL 在表達關係規則上的限制，未來可以考慮引入 SWRL 規則。例如定義：「如果一個物件是 PumpBottle 且其剩餘容量大於 0，則它具備 PressingAffordance」，讓推理機制能夠處理更複雜的物理限制。
+
+    結合大型語言模型（LLM）與本體： 探討如何利用 LLM 自行解析 AI Capstone 的任務敘述（如 press the pump bottle once），並自動映射（Mapping）到本體中的 g09:pumpBottlePressTask，達成端到端（End-to-End）的語意自動建構。
