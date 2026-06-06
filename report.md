@@ -37,21 +37,26 @@
 ## 2.1 Advanced-Level Extension
 
 本組在既有的 graspability 建模之外，額外建立 pressability 相關語意。新增:
--g09:PumpBottle
--g09:PressingAffordance
--g09:PressableObject
--g09:pumpBottlePressTask
--g09:pumpBottle01
+- `g09:PumpBottle`
+- `g09:PressingAffordance`
+- `g09:PressableObject`
+- `g09:pumpBottlePressTask`
+- `g09:pumpBottle01`
 
-g09:PumpBottle 代表進階任務中的幫浦瓶物件；g09:PressingAffordance 用於描述物件具有可按壓特性；g09:PressableObject 則透過 OWL 推論規則自動產生，用來表示具備按壓能力的物件。
+`g09:PumpBottle` 代表進階任務中的幫浦瓶物件； 
+
+`g09:PressingAffordance` 用於描述物件具有可按壓特性；
+
+`g09:PressableObject` 則透過 OWL 推論規則自動產生，用來表示具備按壓能力的物件。
 
 ### GraspableObject 與 PressableObject 定義
 
+
 `cap:GraspableObject` 在 `ontology/group-ontology.ttl` 中使用 OWL 等價類定義：
 
-```
-cap:GraspableObject ≡ cap:PhysicalObject ⊓ ∃cap:hasAffordance.cap:GraspingAffordance
-```
+
+$cap:GraspableObject \equiv cap:PhysicalObject \sqcap \exists cap:hasAffordance.cap:GraspingAffordance$
+
 
 OWL/Turtle 序列化如下：
 
@@ -143,7 +148,7 @@ ORDER BY ?obj
 
 * `g09:pumpBottle01`
 
-代表系統已成功根據 PressingAffordance 推論出 PressableObject 類別。
+代表系統已成功根據 `PressingAffordance` 推論出 `PressableObject `類別。
 
 ## 6. 預期結果
 
@@ -172,9 +177,12 @@ Advanced level 的 `pumpBottle01` 參考自 `aicapstone` 中的 `pump_bottle_pre
 
 ## 8. 推理機制與驗證
 
-`cap:GraspableObject` 與 `g09:PressableObject` 在 `ontology/group-ontology.ttl` 中都有正式的 OWL `owl:equivalentClass` 定義。由於 RDFLib 不支援完整 OWL-DL 推理，本提交使用一個輕量級 Python materializer，其推理邏輯忠實反映了本體中的 OWL 語意：先檢查每個物件是否為 `cap:PhysicalObject`（含子類別），再檢查該物件是否有 `cap:hasAffordance` 指向目標 affordance 類型的個體；當兩個條件同時成立時，就會在推論圖中加入對應的推論類別。
+`cap:GraspableObject` 與 `g09:PressableObject` 在 `ontology/group-ontology.ttl` 中都有正式的 OWL `owl:equivalentClass` 定義。由於 RDFLib 不支援完整 OWL-DL 推理，本提交使用一個輕量級 Python materializer，其推理邏輯忠實反映了本體中的 OWL 語意：
+1. 先檢查每個物件是否為 `cap:PhysicalObject`（含子類別）。
+2. 再檢查該物件是否有 `cap:hasAffordance` 指向目標 affordance 類型的個體
+3. 當兩個條件同時成立時，就會在推論圖中加入對應的推論類別。
 
-作業明確允許 Python/RDFLib-based workflow，前提是清楚說明額外推理機制。
+(作業明確允許 Python/RDFLib-based workflow，前提是清楚說明額外推理機制。)
 
 驗證步驟：
 
@@ -200,12 +208,7 @@ g09:pumpBottlePressingAffordance
 
 由於本體中定義：
 
-```text
-g09:PressableObject ≡
-cap:PhysicalObject
-⊓
-∃ cap:hasAffordance.g09:PressingAffordance
-```
+$g09:PressableObject \equiv cap:PhysicalObject \sqcap \exists cap:hasAffordance.g09:PressingAffordance$
 
 因此當推理程式檢查到：
 
