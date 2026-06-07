@@ -13,7 +13,7 @@ This repository contains the ontology-based semantic mapping submission for AI C
 - `results/graspable_objects_output.txt`: The query output results for graspable objects.
 - `results/pressable_objects_output.txt`: The query output results for pressable objects.
 - `src/reason_and_export.py`: A Python materializer used to infer `cap:GraspableObject` and `g09:PressableObject` and export the results.
-- `report.md`: The project report.
+- `report.pdf`: The project report.
 
 ## Group 09 Modeling Content
 
@@ -189,7 +189,7 @@ If the page is blank or missing any of these sections, please re-run the Widoco 
 | `graspable_objects_output.txt` | Query Output |
 | `pressable_objects_output.txt` | Query Output |
 | `reason_and_export.py` | Reasoning Script |
-| `report.md` | Project Report |
+| `report.pdf` | Project Report |
 
 ---
 
